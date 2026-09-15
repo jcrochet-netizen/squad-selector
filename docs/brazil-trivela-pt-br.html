@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Compose la sélection française pour le rassemblement d&#39;octobre 2026 | TopMercato</title>
-<meta name="description" content="Choisis les 26 joueurs de la sélection française pour le rassemblement d&#39;octobre 2026. Sélectionne 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants, puis partage ta sélection.">
-<!-- Squad Selector · france-topmercato · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/france-topmercato.json puis relancer le build. -->
+<title>Monte a seleção do Brasil para a Data Fifa de outubro de 2026 | Trivela</title>
+<meta name="description" content="Escolha os 26 jogadores da seleção do Brasil para a Data Fifa de outubro de 2026. Selecione 3 goleiros, de 7 a 9 defensores, de 6 a 9 meio-campistas e de 7 a 9 atacantes e compartilhe a sua lista.">
+<!-- Squad Selector · brazil-trivela · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/brazil-trivela.json puis relancer le build. -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
 /* ── Reset & Variables (valeurs par défaut = thème clair) ───────── */
@@ -24,7 +24,7 @@
   --radius:10px;--widget-max:720px;--grid-cols:repeat(2,1fr);
 }
 /* ── Thème du site ──────────────────────────────────────────────── */
-:root{--widget-max:1100px;--grid-cols:repeat(auto-fill,minmax(220px,1fr))}
+:root{--widget-max:920px;--grid-cols:repeat(auto-fill,minmax(220px,1fr))}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.4}
 
 /* ── Widget Container ───────────────────────────────────────────── */
@@ -171,23 +171,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="squad-widget">
 
   <div class="widget-header">
-    <h2>⚽ Ma sélection de la France · Octobre 2026</h2>
+    <h2>⚽ Minha seleção do Brasil · Outubro 2026</h2>
   </div>
 
   <!-- ═══ SCREEN 1: Selection ═══ -->
   <div class="screen active" id="screen-select">
     <div class="intro">
-      <div class="intro-title">⚠️ Mode d&#39;emploi</div>
-      <p class="intro-lead">Choisis les 26 joueurs français que tu convoquerais pour le rassemblement d&#39;octobre 2026</p>
+      <div class="intro-title">⚠️ Como montar sua lista</div>
+      <p class="intro-lead">Escolha os 26 jogadores que você convocaria para a Data Fifa de outubro de 2026</p>
       <ol class="intro-steps">
-        <li>Tu peux choisir : 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants (total = 26).</li>
-        <li>Clique sur les onglets des positions pour naviguer entre GB, DÉF, MIL et ATT.</li>
-        <li>Valide ta liste, vérifie-la sur le terrain et partage-la.</li>
+        <li>Você pode escolher: 3 goleiros, de 7 a 9 defensores, de 6 a 9 meio-campistas e de 7 a 9 atacantes (total = 26).</li>
+        <li>Clique nas abas das posições para navegar entre GOL, DEF, MEI e ATA.</li>
+        <li>Valide sua lista, confira-a no campo e compartilhe.</li>
       </ol>
     </div>
 
     <div class="progress">
-      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> sélectionnés</div>
+      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> selecionados</div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
 
@@ -202,20 +202,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
 
     <button class="validate-btn" id="btnValidate" onclick="validateSelection()" disabled>
-      <span id="btnValidateLabel">Valider ma sélection</span>
+      <span id="btnValidateLabel">Validar minha seleção</span>
     </button>
-    <div class="validate-hint" id="validateHint">Choisis les joueurs restants pour continuer</div>
+    <div class="validate-hint" id="validateHint">Escolha os jogadores restantes para continuar</div>
 
-    <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
+    <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
   </div>
 
   <!-- ═══ SCREEN 2: Pitch + Share ═══ -->
   <div class="screen" id="screen-pitch">
-    <button class="edit-btn" onclick="editSelection()">← Modifier ma sélection</button>
+    <button class="edit-btn" onclick="editSelection()">← Editar minha seleção</button>
 
     <div class="pitch-wrap">
       <div class="pitch-container" id="pitchContainer">
-        <div class="pitch-title">Ma sélection<br>France · Octobre 2026</div>
+        <div class="pitch-title">Minha seleção<br>Brasil · Outubro 2026</div>
         <div class="pitch" id="pitch">
           <div class="pitch-lines">
             <div class="halfway"></div>
@@ -229,24 +229,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
 
       <div class="share-section">
-        <button class="share-btn dl" onclick="downloadImage()">📥 Télécharger l&#39;image</button>
+        <button class="share-btn dl" onclick="downloadImage()">📥 Baixar imagem</button>
         <div class="share-buttons">
-          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Partager</button>
+          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Compartilhar</button>
           <button class="share-btn fb" onclick="shareOn('facebook')">Facebook</button>
           <button class="share-btn wa" onclick="shareOn('whatsapp')">WhatsApp</button>
           <button class="share-btn ig" onclick="shareOn('instagram')">Instagram</button>
         </div>
       </div>
 
-      <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
+      <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
     </div>
   </div>
 
 </div>
 
 <script>
-/* Config injectée au build (selectors/france-topmercato.json + sites/ + locales/) */
-const CONFIG = {"id":"france-topmercato","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Mike Maignan","photo":"https://cdn.sportmonks.com/images/soccer/players/3/96227.png"},{"id":2,"name":"Brice Samba","photo":"https://cdn.sportmonks.com/images/soccer/players/30/96030.png"},{"id":3,"name":"Lucas Chevalier"},{"id":4,"name":"Robin Risser","photo":"https://cdn.sportmonks.com/images/soccer/players/7/37608935.png"},{"id":5,"name":"Alphonse Aréola"},{"id":6,"name":"Hugo Lloris"},{"id":7,"name":"Guillaume Restes"},{"id":8,"name":"Jean Butez"}],"def":[{"id":101,"name":"Jules Koundé","photo":"https://cdn.sportmonks.com/images/soccer/players/18/337394.png"},{"id":102,"name":"Malo Gusto","photo":"https://cdn.sportmonks.com/images/soccer/players/23/37317367.png"},{"id":103,"name":"Pierre Kalulu"},{"id":104,"name":"William Saliba","photo":"https://cdn.sportmonks.com/images/soccer/players/1/17544737.png"},{"id":105,"name":"Dayot Upamecano","photo":"https://cdn.sportmonks.com/images/soccer/players/21/33685.png"},{"id":106,"name":"Ibrahima Konaté","photo":"https://cdn.sportmonks.com/images/soccer/players/12/100556.png"},{"id":107,"name":"Lucas Hernandez","photo":"https://cdn.sportmonks.com/images/soccer/players/13/186797.png"},{"id":108,"name":"Maxence Lacroix","photo":"https://cdn.sportmonks.com/images/soccer/players/26/5666458.png"},{"id":109,"name":"Wesley Fofana"},{"id":110,"name":"Loïc Badé"},{"id":111,"name":"Théo Hernandez","photo":"https://cdn.sportmonks.com/images/soccer/players/19/186995.png"},{"id":112,"name":"Lucas Digne","photo":"https://cdn.sportmonks.com/images/soccer/players/8/95368.png"},{"id":113,"name":"Matthieu Udol"}],"mid":[{"id":201,"name":"N'Golo Kanté","photo":"https://cdn.sportmonks.com/images/soccer/players/9/1193.png"},{"id":202,"name":"Aurélien Tchouaméni","photo":"https://cdn.sportmonks.com/images/soccer/players/3/5270371.png"},{"id":203,"name":"Adrien Rabiot","photo":"https://cdn.sportmonks.com/images/soccer/players/14/95694.png"},{"id":204,"name":"Manu Koné","photo":"https://cdn.sportmonks.com/images/soccer/players/16/23738800.png"},{"id":205,"name":"Warren Zaïre-Emery","photo":"https://cdn.sportmonks.com/images/soccer/players/21/37593237.png"},{"id":206,"name":"Eduardo Camavinga"},{"id":207,"name":"Maghnès Akliouche","photo":"https://cdn.sportmonks.com/images/soccer/players/21/37530901.png"},{"id":208,"name":"Youssouf Fofana"},{"id":209,"name":"Corentin Tolisso"},{"id":210,"name":"Mattéo Guendouzi"},{"id":211,"name":"Khéphren Thuram"},{"id":212,"name":"Ayyoub Bouaddi"}],"att":[{"id":301,"name":"Ousmane Dembélé","photo":"https://cdn.sportmonks.com/images/soccer/players/19/32403.png"},{"id":302,"name":"Kylian Mbappé","photo":"https://cdn.sportmonks.com/images/soccer/players/3/96611.png"},{"id":303,"name":"Michael Olise","photo":"https://cdn.sportmonks.com/images/soccer/players/16/24799984.png"},{"id":304,"name":"Bradley Barcola","photo":"https://cdn.sportmonks.com/images/soccer/players/25/37317369.png"},{"id":305,"name":"Désiré Doué","photo":"https://cdn.sportmonks.com/images/soccer/players/26/37590938.png"},{"id":306,"name":"Rayan Cherki","photo":"https://cdn.sportmonks.com/images/soccer/players/5/21072805.png"},{"id":307,"name":"Jean-Philippe Mateta","photo":"https://cdn.sportmonks.com/images/soccer/players/22/96950.png"},{"id":308,"name":"Marcus Thuram","photo":"https://cdn.sportmonks.com/images/soccer/players/24/99000.png"},{"id":309,"name":"Randal Kolo Muani"},{"id":310,"name":"Florian Thauvin"},{"id":311,"name":"Esteban Lepaul"},{"id":312,"name":"Karim Benzema"}]},"pos":{"gk":"GB","def":"DÉF","mid":"MIL","att":"ATT"},"posFull":{"gk":"Gardiens","def":"Défenseurs","mid":"Milieux","att":"Attaquants"},"t":{"validateBtn":"Valider ma sélection","validateBtnReady":"Voir ma sélection ✓","hintIncomplete":"Choisis les joueurs restants pour continuer","hintMin":"{pos} : minimum {min} requis (actuellement {n})","hintRemainingOne":"Encore 1 joueur à choisir","hintRemainingMany":"Encore {n} joueurs à choisir","shareText":"Voici ma sélection française pour le rassemblement d'octobre 2026. Qu'en penses-tu ? Fais la tienne ici :","instagramAlert":"Image téléchargée ! Partage-la directement sur Instagram.","errorFileProto":"La capture locale est bloquée en ouverture directe (file://). Lance un serveur local (ex : python3 -m http.server) ou teste sur WordPress.","errorPrefix":"Erreur : ","downloadFilename":"ma-selection-france-octobre-2026.png"}};
+/* Config injectée au build (selectors/brazil-trivela.json + sites/ + locales/) */
+const CONFIG = {"id":"brazil-trivela","lang":"pt-BR","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Alisson","photo":"https://cdn.sportmonks.com/images/soccer/players/28/129820.png"},{"id":2,"name":"Ederson Moraes","displayName":"Ederson M."},{"id":3,"name":"Bento"},{"id":4,"name":"Hugo Souza","displayName":"H.Souza"}],"def":[{"id":101,"name":"Alex Sandro","photo":"https://cdn.sportmonks.com/images/soccer/players/29/129725.png"},{"id":102,"name":"Bremer","photo":"https://cdn.sportmonks.com/images/soccer/players/23/1167415.png"},{"id":103,"name":"Danilo"},{"id":104,"name":"Douglas Santos","photo":"https://cdn.sportmonks.com/images/soccer/players/6/32614.png"},{"id":105,"name":"Gabriel Magalhães","photo":"https://cdn.sportmonks.com/images/soccer/players/19/97811.png"},{"id":106,"name":"Léo Pereira","photo":"https://cdn.sportmonks.com/images/soccer/players/23/218871.png"},{"id":107,"name":"Marquinhos","photo":"https://cdn.sportmonks.com/images/soccer/players/16/96208.png"},{"id":108,"name":"Wesley"},{"id":109,"name":"Ibañez"},{"id":110,"name":"Alexsandro Ribeiro"},{"id":111,"name":"Fabrício Bruno"},{"id":112,"name":"Vítor Reis","displayName":"V. Reis"},{"id":113,"name":"Vanderson"}],"mid":[{"id":201,"name":"Andrey Santos"},{"id":202,"name":"Bruno Guimarães","displayName":"B.Guimarães","photo":"https://cdn.sportmonks.com/images/soccer/players/9/459145.png"},{"id":203,"name":"Casemiro","photo":"https://cdn.sportmonks.com/images/soccer/players/20/159700.png"},{"id":204,"name":"Danilo Santos","photo":"https://cdn.sportmonks.com/images/soccer/players/5/37533413.png"},{"id":205,"name":"Fabinho","photo":"https://cdn.sportmonks.com/images/soccer/players/3/96099.png"},{"id":206,"name":"Lucas Paquetá","photo":"https://cdn.sportmonks.com/images/soccer/players/20/220052.png"},{"id":207,"name":"Gabriel Sara"},{"id":208,"name":"André"},{"id":209,"name":"Joelinton"},{"id":210,"name":"Gerson"},{"id":211,"name":"Ederson","photo":"https://cdn.sportmonks.com/images/soccer/players/28/545244.png"},{"id":212,"name":"João Gomes","displayName":"J. Gomes"}],"att":[{"id":301,"name":"Endrick","photo":"https://cdn.sportmonks.com/images/soccer/players/1/37647009.png"},{"id":302,"name":"Gabriel Martinelli","photo":"https://cdn.sportmonks.com/images/soccer/players/28/10959356.png"},{"id":303,"name":"Igor Thiago","photo":"https://cdn.sportmonks.com/images/soccer/players/4/37407204.png"},{"id":304,"name":"João Pedro","displayName":"J.Pedro"},{"id":305,"name":"Luiz Henrique","displayName":"L.Henrique","photo":"https://cdn.sportmonks.com/images/soccer/players/24/37526008.png"},{"id":306,"name":"Matheus Cunha","displayName":"M.Cunha","photo":"https://cdn.sportmonks.com/images/soccer/players/19/1846739.png"},{"id":307,"name":"Raphinha","photo":"https://cdn.sportmonks.com/images/soccer/players/2/160258.png"},{"id":308,"name":"Vinicius Júnior","displayName":"Vinicius","photo":"https://cdn.sportmonks.com/images/soccer/players/15/600687.png"},{"id":309,"name":"Neymar","photo":"https://cdn.sportmonks.com/images/soccer/players/16/186320.png"},{"id":310,"name":"Antony"},{"id":311,"name":"Rayan","photo":"https://cdn.sportmonks.com/images/soccer/players/15/37679567.png"},{"id":312,"name":"Igor Jesus"},{"id":313,"name":"Pedro"},{"id":314,"name":"Richarlison"},{"id":315,"name":"Vitor Roque"},{"id":316,"name":"Kaio Jorge"}]},"pos":{"gk":"GOL","def":"DEF","mid":"MEI","att":"ATA"},"posFull":{"gk":"Goleiros","def":"Defensores","mid":"Meio-campistas","att":"Atacantes"},"t":{"validateBtn":"Validar minha seleção","validateBtnReady":"Ver minha seleção ✓","hintIncomplete":"Escolha os jogadores restantes para continuar","hintMin":"{pos}: mínimo de {min} obrigatório (atualmente {n})","hintRemainingOne":"Falta 1 jogador","hintRemainingMany":"Faltam {n} jogadores","shareText":"Aqui está minha seleção do Brasil para a Data Fifa de outubro de 2026. O que você acha? Monte a sua aqui:","instagramAlert":"Imagem baixada! Compartilhe direto no Instagram.","errorFileProto":"A captura local está bloqueada na abertura direta (file://). Inicie um servidor local (ex.: python3 -m http.server) ou teste no WordPress.","errorPrefix":"Erro: ","downloadFilename":"minha-selecao-brasil-outubro-2026.png"}};
 
 const T = CONFIG.t;
 const SQUAD_TOTAL = CONFIG.rules.total;

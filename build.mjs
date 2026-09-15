@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════════════
    Squad Selector — build
-   node build.mjs                         → génère tous les sélecteurs
-   node build.mjs england-sportsmole ...  → génère seulement ceux-là
+   node build.mjs                         → génère tous les widgets, dans toutes les langues
+   node build.mjs england-sportsmole ...  → génère seulement ceux-là (toutes leurs langues)
 
-   Entrées : selectors/<id>.json  (pays, événement, règles, joueurs)
-             sites/<site>.json    (nom du média, thème, langue par défaut)
-             locales/<lang>.json  (textes de l'interface)
-             src/template.html    (moteur commun)
-   Sortie  : docs/<id>.html (fichier autonome, prêt pour GitHub Pages)
-             docs/index.html (liste de tous les sélecteurs)
+   Entrées : selectors/<id>.json   (site, pays, événement, règles, joueurs)
+             countries/<pays>.json (nom du pays traduit + nationalité SportMonks)
+             events/<event>.json   (libellé de l'événement traduit)
+             sites/<site>.json     (nom du média, thème)
+             locales/<langue>.json (textes de l'interface)
+             src/template.html     (moteur commun)
+   Sortie  : docs/<id>-<langue>.html (fichiers autonomes, prêts pour GitHub Pages)
+             docs/index.html          (liste de tous les widgets)
    ═══════════════════════════════════════════════════════════════════ */
 import fs from "node:fs";
 import path from "node:path";
@@ -39,6 +41,8 @@ function listIds(dir) {
     .map(f => f.slice(0, -5))
     .sort();
 }
+
+const outName = (id, lang) => `${id}-${lang.toLowerCase()}.html`;
 
 const fmt = (str, vars) => str.replace(/\{(\w+)\}/g, (m, k) => (vars[k] !== undefined ? String(vars[k]) : m));
 
@@ -142,24 +146,40 @@ function themeCss(site, sel, errors) {
   return site.css ? `${rootBlock}\n${site.css}` : rootBlock;
 }
 
-/* ── Build one selector ──────────────────────────────────────────── */
-function buildSelector(id, template, baseLocale) {
+/* ── Load one selector (partie commune à toutes les langues) ─────── */
+function loadSelector(id, allLangs) {
   const errors = [];
   const warnings = [];
   const sel = readJson(`selectors/${id}.json`);
   const site = readJson(`sites/${sel.site}.json`);
-  const localeCode = sel.locale || site.locale;
-  const locale = readJson(`locales/${localeCode}.json`);
 
-  const country = sel.country || {};
-  const event = sel.event || {};
-  if (!country.name) errors.push(`country.name manquant`);
-  if (!event.long || !event.short) errors.push(`event.long et event.short sont obligatoires`);
+  if (typeof sel.country !== "string") errors.push(`"country" doit référencer un fichier de countries/ (ex : "england")`);
+  if (typeof sel.event !== "string") errors.push(`"event" doit référencer un fichier de events/ (ex : "2026-10")`);
+  const country = typeof sel.country === "string" ? readJson(`countries/${sel.country}.json`) : {};
+  const event = typeof sel.event === "string" ? readJson(`events/${sel.event}.json`) : {};
+
+  const languages = sel.languages || allLangs;
+  languages.forEach(l => {
+    if (!allLangs.includes(l)) errors.push(`langue "${l}" inconnue (disponibles : ${allLangs.join(", ")})`);
+  });
 
   const rules = normalizeRules(sel.rules || {}, errors);
   const players = normalizePlayers(sel.players, rules, errors, warnings);
   const css = themeCss(site, sel, errors);
-  if (errors.length) return { id, errors, warnings };
+  return { id, sel, site, country, event, languages, rules, players, css, errors, warnings };
+}
+
+/* ── Build one language variant ──────────────────────────────────── */
+function buildVariant(ctx, lang, template, baseLocale) {
+  const errors = [];
+  const warnings = [];
+  const { id, sel, site, rules, players } = ctx;
+  const locale = readJson(`locales/${lang}.json`);
+  const country = ctx.country[lang] || {};
+  const event = ctx.event[lang] || {};
+  if (!country.name) errors.push(`countries/${sel.country}.json : "${lang}.name" manquant`);
+  if (!event.long || !event.short) errors.push(`events/${sel.event}.json : "${lang}.long" et "${lang}.short" manquants`);
+  if (errors.length) return { errors, warnings };
 
   const vars = {
     site: site.name,
@@ -176,11 +196,11 @@ function buildSelector(id, template, baseLocale) {
     eventSlug: slugify(event.short)
   };
 
-  // Priorité des textes : selector.text > site.text[langue] > locales/<langue> > locales/en
-  const rawText = { ...locale.t, ...((site.text || {})[localeCode] || {}), ...(sel.text || {}) };
+  // Priorité des textes : selector.text[langue] > site.text[langue] > locales/<langue> > locales/en
+  const rawText = { ...locale.t, ...((site.text || {})[lang] || {}), ...((sel.text || {})[lang] || {}) };
   Object.keys(baseLocale.t).forEach(k => {
     if (!(k in rawText)) {
-      warnings.push(`locales/${localeCode}.json : clé "${k}" manquante, texte anglais utilisé`);
+      warnings.push(`locales/${lang}.json : clé "${k}" manquante, texte anglais utilisé`);
       rawText[k] = baseLocale.t[k];
     }
   });
@@ -193,6 +213,7 @@ function buildSelector(id, template, baseLocale) {
 
   const config = {
     id,
+    lang,
     rules,
     players,
     pos: locale.pos,
@@ -215,10 +236,10 @@ function buildSelector(id, template, baseLocale) {
   const data = {
     ...t,
     id,
-    htmlLang: localeCode,
+    htmlLang: lang,
     total: rules.total,
     builtAt: new Date().toISOString().slice(0, 10),
-    themeCss: css,
+    themeCss: ctx.css,
     configJson: JSON.stringify(config).replace(/</g, "\\u003c")
   };
 
@@ -229,23 +250,26 @@ function buildSelector(id, template, baseLocale) {
     return raw ? String(data[key]) : escHtml(data[key]);
   });
   if (missing.size) errors.push(`template : variable(s) non fournie(s) ${[...missing].join(", ")}`);
-  if (errors.length) return { id, errors, warnings };
+  if (errors.length) return { errors, warnings };
 
-  fs.writeFileSync(path.join(OUT_DIR, `${id}.html`), html);
-  const pool = POSITIONS.reduce((s, p) => s + players[p].length, 0);
-  return { id, errors, warnings, summary: `${site.name} · ${localeCode} · ${country.name} · ${event.short} · ${pool} joueurs · liste de ${rules.total}` };
+  const file = outName(id, lang);
+  fs.writeFileSync(path.join(OUT_DIR, file), html);
+  return { errors, warnings, file, summary: `${country.name} · ${event.short}` };
 }
 
 /* ── Index page ──────────────────────────────────────────────────── */
-function buildIndex() {
+function buildIndex(allLangs) {
   const rows = listIds("selectors").map(id => {
     try {
       const sel = readJson(`selectors/${id}.json`);
       const site = readJson(`sites/${sel.site}.json`);
-      const built = fs.existsSync(path.join(OUT_DIR, `${id}.html`));
-      return `<tr><td>${built ? `<a href="${id}.html">${escHtml(id)}</a>` : escHtml(id)}</td><td>${escHtml(site.name)}</td><td>${escHtml(sel.locale || site.locale)}</td><td>${escHtml(sel.country?.name || "")}</td><td>${escHtml(sel.event?.short || "")}</td></tr>`;
+      const links = (sel.languages || allLangs).map(lang => {
+        const file = outName(id, lang);
+        return fs.existsSync(path.join(OUT_DIR, file)) ? `<a href="${file}">${escHtml(lang)}</a>` : `<s>${escHtml(lang)}</s>`;
+      }).join(" · ");
+      return `<tr><td>${escHtml(id)}</td><td>${escHtml(site.name)}</td><td>${escHtml(sel.event)}</td><td>${links}</td></tr>`;
     } catch {
-      return `<tr><td>${escHtml(id)}</td><td colspan="4">config invalide</td></tr>`;
+      return `<tr><td>${escHtml(id)}</td><td colspan="3">config invalide</td></tr>`;
     }
   }).join("\n");
   const html = `<!DOCTYPE html>
@@ -254,9 +278,9 @@ function buildIndex() {
 <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:0;padding:24px 16px;color:#1a1a1a;background:#fff}
 main{max-width:860px;margin:0 auto}h1{font-size:1.4rem;margin-bottom:4px}p{color:#666;margin-top:0}
 .wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #eee;white-space:nowrap}
-th{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:#777}a{color:#e30613;font-weight:600}</style></head>
+th{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:#777}a{color:#e30613;font-weight:600}s{color:#bbb}</style></head>
 <body><main><h1>⚽ Squad Selector</h1><p>Mis à jour le ${new Date().toISOString().slice(0, 10)}</p>
-<div class="wrap"><table><thead><tr><th>Sélecteur</th><th>Site</th><th>Langue</th><th>Pays</th><th>Événement</th></tr></thead>
+<div class="wrap"><table><thead><tr><th>Widget</th><th>Site</th><th>Événement</th><th>Langues</th></tr></thead>
 <tbody>
 ${rows}
 </tbody></table></div></main></body></html>
@@ -267,34 +291,72 @@ ${rows}
 /* ── Main ────────────────────────────────────────────────────────── */
 const requested = process.argv.slice(2);
 const allIds = listIds("selectors");
+const allLangs = listIds("locales");
 const unknown = requested.filter(id => !allIds.includes(id));
 if (unknown.length) {
-  console.error(`✖ Sélecteur(s) inconnu(s) : ${unknown.join(", ")}\n  Disponibles : ${allIds.join(", ")}`);
+  console.error(`✖ Widget(s) inconnu(s) : ${unknown.join(", ")}\n  Disponibles : ${allIds.join(", ")}`);
   process.exit(1);
 }
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
 const template = fs.readFileSync(path.join(ROOT, "src/template.html"), "utf8");
 const baseLocale = readJson("locales/en.json");
+const targets = requested.length ? requested : allIds;
+const expected = new Set();   // fichiers attendus pour les widgets traités
+const untouched = new Set();  // widgets en erreur de chargement : on ne supprime pas leurs anciens fichiers
 let failed = 0;
 
-for (const id of requested.length ? requested : allIds) {
-  let result;
+for (const id of targets) {
+  let ctx;
   try {
-    result = buildSelector(id, template, baseLocale);
+    ctx = loadSelector(id, allLangs);
   } catch (e) {
-    result = { id, errors: [e.message], warnings: [] };
+    ctx = { id, errors: [e.message], warnings: [] };
   }
-  if (result.errors.length) {
+  if (ctx.errors.length) {
     failed++;
+    untouched.add(id);
     console.log(`✖ ${id}`);
-    result.errors.forEach(e => console.log(`    erreur : ${e}`));
-  } else {
-    console.log(`✔ ${id} → docs/${id}.html  (${result.summary})`);
+    ctx.errors.forEach(e => console.log(`    erreur : ${e}`));
+    ctx.warnings.forEach(w => console.log(`    ⚠ ${w}`));
+    continue;
   }
-  result.warnings.forEach(w => console.log(`    ⚠ ${w}`));
+
+  const pool = POSITIONS.reduce((s, p) => s + ctx.players[p].length, 0);
+  console.log(`● ${id}  (${ctx.site.name} · ${pool} joueurs · liste de ${ctx.rules.total})`);
+  ctx.warnings.forEach(w => console.log(`    ⚠ ${w}`));
+
+  for (const lang of ctx.languages) {
+    expected.add(outName(id, lang));
+    let result;
+    try {
+      result = buildVariant(ctx, lang, template, baseLocale);
+    } catch (e) {
+      result = { errors: [e.message], warnings: [] };
+    }
+    if (result.errors.length) {
+      failed++;
+      console.log(`    ✖ ${lang}`);
+      result.errors.forEach(e => console.log(`        erreur : ${e}`));
+    } else {
+      console.log(`    ✔ ${lang.padEnd(5)} → docs/${result.file}  (${result.summary})`);
+    }
+    result.warnings.forEach(w => console.log(`        ⚠ ${w}`));
+  }
 }
 
-buildIndex();
-console.log(failed ? `\n${failed} sélecteur(s) en erreur, fichiers non générés.` : "\nBuild terminé.");
+/* Nettoyage : anciennes pages de widgets (langue retirée, ancien nommage sans langue) */
+for (const file of fs.readdirSync(OUT_DIR)) {
+  if (!file.endsWith(".html") || file === "index.html" || expected.has(file)) continue;
+  const owner = allIds.find(id => file === `${id}.html` || file.startsWith(`${id}-`));
+  const isTarget = owner && targets.includes(owner) && !untouched.has(owner);
+  const isOrphan = !owner && !requested.length;
+  if (isTarget || isOrphan) {
+    fs.unlinkSync(path.join(OUT_DIR, file));
+    console.log(`🗑  docs/${file} supprimé (plus généré)`);
+  }
+}
+
+buildIndex(allLangs);
+console.log(failed ? `\n${failed} erreur(s), fichiers concernés non générés.` : "\nBuild terminé.");
 process.exit(failed ? 1 : 0);

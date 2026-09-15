@@ -6,11 +6,13 @@ Successeur de `wc26-squad-pickup` : même design, même fonctionnement (onglets 
 ## Structure
 
 ```
-selectors/   un fichier JSON par widget : pays, événement, règles, joueurs   ← ce qu'on modifie au quotidien
-sites/       un JSON par média : nom, thème (couleurs), largeur, langue par défaut
-locales/     textes de l'interface : en, fr, pt-BR
+selectors/   un fichier JSON par widget : site, pays, événement, règles, joueurs   ← ce qu'on modifie au quotidien
+countries/   un JSON par pays : nom traduit dans chaque langue + nationalité SportMonks
+events/      un JSON par rassemblement : libellé traduit (ex. 2026-10.json)
+sites/       un JSON par média : nom, thème (couleurs), largeur
+locales/     textes de l'interface : en, es, fr, pt-BR
 src/         template.html : le moteur commun (HTML + CSS + JS)
-docs/        fichiers générés, autonomes, à publier (ne pas modifier à la main)
+docs/        fichiers générés, un par widget et par langue : <widget>-<langue>.html (ne pas modifier à la main)
 build.mjs    script de génération (Node, aucune dépendance)
 ```
 
@@ -31,12 +33,12 @@ Le build vérifie la config et refuse de générer en cas d'erreur : doublon de 
 ```json
 {
   "site": "sportsmole",
-  "country": { "name": "England" },
-  "event": { "long": "the October 2026 international break", "short": "October 2026" },
+  "country": "england",
+  "event": "2026-10",
   "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
   "players": {
     "gk":  ["Jordan Pickford", "Dean Henderson"],
-    "def": [{ "name": "Marc Guéhi", "club": "Crystal Palace", "photo": "https://cdn.sportmonks.com/..." }],
+    "def": [{ "name": "Marc Guéhi", "club": "Crystal Palace", "sportmonksId": 4536500, "photo": "https://cdn.sportmonks.com/..." }],
     "mid": [{ "name": "Vinícius Júnior", "displayName": "Vinicius Jr" }],
     "att": ["Harry Kane"]
   }
@@ -46,15 +48,42 @@ Le build vérifie la config et refuse de générer en cas d'erreur : doublon de 
 | Champ | Rôle |
 |---|---|
 | `site` | nom d'un fichier de `sites/` (thème + nom du média) |
-| `locale` | optionnel : force une langue (sinon celle du site). Ex. `"en"` pour Afrique du Sud sur Afrik-Foot |
-| `country.name` | nom affiché du pays |
-| `country.of` / `adj` / `demonym` | formes grammaticales (FR/PT) : `"de la France"`, `"française"`, `"français"` ; `"do Brasil"` |
-| `event.long` | l'événement dans une phrase : « pour **le rassemblement d'octobre 2026** » |
-| `event.short` | version courte (titre, terrain, nom de l'image) : `Octobre 2026` |
+| `country` | nom d'un fichier de `countries/` |
+| `event` | nom d'un fichier de `events/` |
+| `languages` | optionnel : limiter les langues générées, ex. `["fr", "en"]` (par défaut : toutes celles de `locales/`) |
 | `rules` | taille de la liste et fourchette `[min, max]` par poste |
-| `players` | un joueur = un nom, ou un objet avec `name` + options `displayName` (nom sur le terrain), `club` (affiché sous le nom), `photo` (URL https, initiales en secours si l'image ne charge pas) |
-| `text` | optionnel : remplace n'importe quel texte de la locale pour ce widget seulement |
+| `players` | un joueur = un nom, ou un objet avec `name` + options `displayName` (nom sur le terrain), `club` (affiché sous le nom), `sportmonksId`, `photo` (URL https, initiales en secours si l'image ne charge pas) |
+| `text` | optionnel, par langue : `{ "fr": { "introTitle": "…" } }` remplace un texte pour ce widget seulement |
 | `vars` | optionnel : remplace une couleur du thème pour ce widget seulement |
+
+### Pays : `countries/<pays>.json`
+
+```json
+{
+  "sportmonksNationalityId": 462,
+  "en": { "name": "England" },
+  "fr": { "name": "Angleterre", "of": "de l'Angleterre", "adj": "anglaise", "demonym": "anglais" },
+  "es": { "name": "Inglaterra", "of": "de Inglaterra" },
+  "pt-BR": { "name": "Inglaterra", "of": "da Inglaterra" }
+}
+```
+
+`of` / `adj` / `demonym` sont les formes grammaticales utilisées dans les phrases (« Ma sélection **de l'Angleterre** », « la sélection **anglaise** », « les joueurs **anglais** »).
+
+### Événement : `events/<id>.json`
+
+Un fichier par rassemblement, à créer une fois puis à référencer dans les sélecteurs :
+
+```json
+{
+  "en": { "long": "the October 2026 international break", "short": "October 2026" },
+  "fr": { "long": "le rassemblement d'octobre 2026", "short": "Octobre 2026" },
+  "es": { "long": "la ventana internacional de octubre de 2026", "short": "Octubre 2026" },
+  "pt-BR": { "long": "a Data Fifa de outubro de 2026", "short": "Outubro 2026" }
+}
+```
+
+`long` s'insère dans une phrase (« pour **le rassemblement d'octobre 2026** »), `short` sert au titre, au terrain et au nom de l'image.
 
 ## Photos SportMonks
 
@@ -63,7 +92,8 @@ node fetch-photos.mjs england-sportsmole
 ```
 
 - Token lu dans `.env` (`SPORTMONKS_API_TOKEN`, voir `.env.example`, fichier exclu de git).
-- Le sélecteur doit indiquer la nationalité SportMonks : `"sportmonks": { "nationalityId": 462 }` (462 = England).
+- Le fichier pays doit indiquer la nationalité SportMonks : `"sportmonksNationalityId": 462` dans `countries/england.json` (716 = Nigeria).
+- Binationaux : si le joueur n'existe que sous une autre nationalité chez SportMonks, il est pris s'il est unique et signalé « à vérifier ».
 - Chaque joueur est cherché par nom, filtré par nationalité, en écartant les photos « placeholder ». Le script écrit `sportmonksId` + `photo` dans le JSON.
 - **Homonymes** : le script n'écrit rien et liste les ids possibles avec les dates de naissance. Ajouter le bon `"sportmonksId"` au joueur puis relancer.
 - Par défaut, seuls les joueurs sans photo ou sans id sont traités ; `--all` revérifie tout le monde.
@@ -71,7 +101,7 @@ node fetch-photos.mjs england-sportsmole
 
 ## Ajouter un widget (nouveau pays ou nouveau site)
 
-Copier un JSON de `selectors/` proche (même site ou même langue), le renommer `<pays>-<site>.json`, adapter, lancer le build.
+Copier un JSON de `selectors/` proche, le renommer `<pays>-<site>.json`, adapter. Si le pays est nouveau, créer aussi `countries/<pays>.json` (toutes les langues). Lancer le build : le widget est généré dans chaque langue.
 
 ## Ajouter un site
 
@@ -80,7 +110,6 @@ Créer `sites/<site>.json` :
 ```json
 {
   "name": "Nom du média",
-  "locale": "fr",
   "maxWidth": 800,
   "gridCols": "repeat(2,1fr)",
   "vars": { "--accent": "#e30613", "--accent-dark": "#b8050f" },
@@ -94,7 +123,7 @@ Exemple de thème sombre : `sites/afrikfoot.json`.
 
 ## Ajouter une langue
 
-Copier `locales/en.json` en `locales/<code>.json` (ex. `es.json`) et traduire. Variables utilisables dans les textes :
+Copier `locales/en.json` en `locales/<code>.json` (ex. `it.json`) et traduire, puis ajouter la langue dans chaque fichier de `countries/` et `events/`. Le build signale tout ce qui manque. Au build suivant, chaque widget est aussi généré dans cette langue. Variables utilisables dans les textes :
 `{country} {countryOf} {countryAdj} {countryDemonym} {event} {eventShort} {site} {total} {rules} {tabs}`.
 `{rules}` (« 3 gardiens, 7 à 9 défenseurs… ») et `{tabs}` (« GB, DÉF, MIL et ATT ») sont générés à partir des règles, donc toujours à jour.
 
@@ -112,7 +141,7 @@ Le widget envoie sa hauteur et demande l'URL de la page parente (pour les liens 
 Les anciens messages `wc2026-*` et `xilegende-*` sont toujours émis : les intégrations existantes continuent de marcher en changeant seulement l'URL de l'iframe.
 
 ```html
-<iframe id="squad-selector-england" src="https://jcrochet-netizen.github.io/squad-selector/england-sportsmole.html"
+<iframe id="squad-selector-england" src="https://jcrochet-netizen.github.io/squad-selector/england-sportsmole-en.html"
         title="Pick your England squad" loading="lazy" scrolling="no"
         referrerpolicy="strict-origin-when-cross-origin"
         style="width:100%;border:0;display:block;height:1400px;overflow:hidden"></iframe>
@@ -145,4 +174,4 @@ Règles de sécurité (des deux côtés) :
 ## Publication (GitHub Pages)
 
 Repo GitHub → Settings → Pages → *Deploy from a branch* → `main` / dossier `/docs`.
-Les widgets sont alors servis à `https://<compte>.github.io/<repo>/<id>.html`, et `index.html` liste tous les widgets.
+Les widgets sont alors servis à `https://jcrochet-netizen.github.io/squad-selector/<widget>-<langue>.html` (langue en minuscules : `en`, `es`, `fr`, `pt-br`), et `index.html` liste tous les widgets avec leurs langues.

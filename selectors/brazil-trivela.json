@@ -1,13 +1,7 @@
 {
   "site": "trivela",
-  "country": {
-    "name": "Brasil",
-    "of": "do Brasil"
-  },
-  "event": {
-    "long": "a Data Fifa de outubro de 2026",
-    "short": "Outubro 2026"
-  },
+  "country": "brazil",
+  "event": "2026-10",
   "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
   "players": {
     "gk": [

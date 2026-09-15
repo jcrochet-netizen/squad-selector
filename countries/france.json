@@ -1,0 +1,6 @@
+{
+  "en": { "name": "France" },
+  "fr": { "name": "France", "of": "de la France", "adj": "française", "demonym": "français" },
+  "es": { "name": "Francia", "of": "de Francia" },
+  "pt-BR": { "name": "França", "of": "da França" }
+}

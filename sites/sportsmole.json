@@ -1,6 +1,5 @@
 {
   "name": "Sportsmole",
-  "locale": "en",
   "maxWidth": 720,
   "gridCols": "repeat(2,1fr)",
   "vars": {}

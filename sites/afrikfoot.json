@@ -1,6 +1,5 @@
 {
   "name": "Afrik-Foot",
-  "locale": "fr",
   "maxWidth": 800,
   "gridCols": "repeat(2,1fr)",
   "vars": {

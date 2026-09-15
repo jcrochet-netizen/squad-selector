@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Compose la sélection nigériane pour le rassemblement d&#39;octobre 2026 | Afrik-Foot</title>
-<meta name="description" content="Choisis les 26 joueurs de la sélection nigériane pour le rassemblement d&#39;octobre 2026. Sélectionne 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants, puis partage ta sélection.">
-<!-- Squad Selector · nigeria-afrikfoot · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/nigeria-afrikfoot.json puis relancer le build. -->
+<title>Pick your Senegal squad for the October 2026 international break | Afrik-Foot</title>
+<meta name="description" content="Build and share your 26-man Senegal squad for the October 2026 international break. Pick 3 goalkeepers, 7 to 9 defenders, 6 to 9 midfielders and 7 to 9 forwards.">
+<!-- Squad Selector · senegal-afrikfoot · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/senegal-afrikfoot.json puis relancer le build. -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
 /* ── Reset & Variables (valeurs par défaut = thème clair) ───────── */
@@ -171,23 +171,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="squad-widget">
 
   <div class="widget-header">
-    <h2>⚽ Ma sélection du Nigeria · Octobre 2026</h2>
+    <h2>⚽ My Senegal squad · October 2026</h2>
   </div>
 
   <!-- ═══ SCREEN 1: Selection ═══ -->
   <div class="screen active" id="screen-select">
     <div class="intro">
-      <div class="intro-title">⚠️ Mode d&#39;emploi</div>
-      <p class="intro-lead">Choisis les 26 joueurs nigérians que tu convoquerais pour le rassemblement d&#39;octobre 2026</p>
+      <div class="intro-title">⚠️ How to pick your squad</div>
+      <p class="intro-lead">Pick the 26 players you would call up for the October 2026 international break</p>
       <ol class="intro-steps">
-        <li>Tu peux choisir : 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants (total = 26).</li>
-        <li>Clique sur les onglets des positions pour naviguer entre GB, DÉF, MIL et ATT.</li>
-        <li>Valide ta liste, vérifie-la sur le terrain et partage-la.</li>
+        <li>You can choose: 3 goalkeepers, 7 to 9 defenders, 6 to 9 midfielders and 7 to 9 forwards (total must equal 26).</li>
+        <li>Click on the position tabs to switch between GK, DEF, MID and FOR.</li>
+        <li>Validate the list, see it on the pitch and share it.</li>
       </ol>
     </div>
 
     <div class="progress">
-      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> sélectionnés</div>
+      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> selected</div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
 
@@ -202,20 +202,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
 
     <button class="validate-btn" id="btnValidate" onclick="validateSelection()" disabled>
-      <span id="btnValidateLabel">Valider ma sélection</span>
+      <span id="btnValidateLabel">Validate my squad</span>
     </button>
-    <div class="validate-hint" id="validateHint">Choisis les joueurs restants pour continuer</div>
+    <div class="validate-hint" id="validateHint">Pick the remaining players to continue</div>
 
-    <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
+    <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
   </div>
 
   <!-- ═══ SCREEN 2: Pitch + Share ═══ -->
   <div class="screen" id="screen-pitch">
-    <button class="edit-btn" onclick="editSelection()">← Modifier ma sélection</button>
+    <button class="edit-btn" onclick="editSelection()">← Edit my selection</button>
 
     <div class="pitch-wrap">
       <div class="pitch-container" id="pitchContainer">
-        <div class="pitch-title">Ma sélection<br>Nigeria · Octobre 2026</div>
+        <div class="pitch-title">My 26-man squad<br>Senegal · October 2026</div>
         <div class="pitch" id="pitch">
           <div class="pitch-lines">
             <div class="halfway"></div>
@@ -229,24 +229,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
 
       <div class="share-section">
-        <button class="share-btn dl" onclick="downloadImage()">📥 Télécharger l&#39;image</button>
+        <button class="share-btn dl" onclick="downloadImage()">📥 Download image</button>
         <div class="share-buttons">
-          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Partager</button>
+          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Share</button>
           <button class="share-btn fb" onclick="shareOn('facebook')">Facebook</button>
           <button class="share-btn wa" onclick="shareOn('whatsapp')">WhatsApp</button>
           <button class="share-btn ig" onclick="shareOn('instagram')">Instagram</button>
         </div>
       </div>
 
-      <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
+      <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
     </div>
   </div>
 
 </div>
 
 <script>
-/* Config injectée au build (selectors/nigeria-afrikfoot.json + sites/ + locales/) */
-const CONFIG = {"id":"nigeria-afrikfoot","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Maduka Okoye","club":"Udinese","photo":"https://cdn.sportmonks.com/images/soccer/players/9/540585.png"},{"id":2,"name":"Stanley Nwabali","club":"Chippa United","photo":"https://cdn.sportmonks.com/images/soccer/players/10/37371114.png"},{"id":3,"name":"Arthur Okonkwo","club":"Charlton Athletic","photo":"https://cdn.sportmonks.com/images/soccer/players/9/21428649.png"},{"id":4,"name":"Francis Uzoho","club":"Omonia Maiou"}],"def":[{"id":101,"name":"Bruno Onyemaechi","club":"Olympiakos","photo":"https://cdn.sportmonks.com/images/soccer/players/13/37541645.png"},{"id":102,"name":"Ola Aina","club":"Nottingham Forest","photo":"https://cdn.sportmonks.com/images/soccer/players/4/1956.png"},{"id":103,"name":"Calvin Bassey","club":"Fulham","photo":"https://cdn.sportmonks.com/images/soccer/players/27/540027.png"},{"id":104,"name":"Emmanuel Fernandez","club":"Rangers","photo":"https://cdn.sportmonks.com/images/soccer/players/19/37577459.png"},{"id":105,"name":"Chibuike Nwaiwu","club":"Trabzonspor"},{"id":106,"name":"Semi Ajayi","club":"Hull City","photo":"https://cdn.sportmonks.com/images/soccer/players/26/3066.png"},{"id":107,"name":"Bright Osayi-Samuel","club":"Birmingham City","photo":"https://cdn.sportmonks.com/images/soccer/players/20/6580.png"},{"id":108,"name":"Chidozie Awaziem","club":"Alanyaspor","photo":"https://cdn.sportmonks.com/images/soccer/players/8/161320.png"},{"id":109,"name":"Benjamin Fredrick","club":"Brentford","photo":"https://cdn.sportmonks.com/images/soccer/players/7/37683527.png"},{"id":110,"name":"Ryan Alebiosu","club":"Blackburn Rovers","photo":"https://cdn.sportmonks.com/images/soccer/players/10/28912714.png"},{"id":111,"name":"Abdullahi Bewene","club":"Baník Ostrava"}],"mid":[{"id":201,"name":"Wilfred Ndidi","club":"Besiktas","photo":"https://cdn.sportmonks.com/images/soccer/players/7/5319.png"},{"id":202,"name":"Frank Onyeka","club":"Coventry City","photo":"https://cdn.sportmonks.com/images/soccer/players/20/537108.png"},{"id":203,"name":"Alex Iwobi","club":"Fulham","photo":"https://cdn.sportmonks.com/images/soccer/players/25/1881.png"},{"id":204,"name":"Raphael Onyedika","club":"Eintracht Frankfurt","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37327999.png"},{"id":205,"name":"Alhassan Yusuf","club":"New England Revolution","photo":"https://cdn.sportmonks.com/images/soccer/players/12/20683852.png"},{"id":206,"name":"Ebenezer Akinsanmiro","club":"Monza","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37684319.png"},{"id":207,"name":"Afeez Aremu","club":"Aberdeen","photo":"https://cdn.sportmonks.com/images/soccer/players/12/5666412.png"},{"id":208,"name":"Victor Gidado","club":"Gaziantep FK"}],"att":[{"id":301,"name":"Ademola Lookman","club":"Atlético Madrid","photo":"https://cdn.sportmonks.com/images/soccer/players/9/5321.png"},{"id":302,"name":"Taiwo Awoniyi","club":"Coventry City","photo":"https://cdn.sportmonks.com/images/soccer/players/10/26506.png"},{"id":303,"name":"Paul Onuachu","club":"Trabzonspor","photo":"https://cdn.sportmonks.com/images/soccer/players/15/84143.png"},{"id":304,"name":"Akor Adams","club":"Venezia","photo":"https://cdn.sportmonks.com/images/soccer/players/5/22169317.png"},{"id":305,"name":"Rafiu Durosinmi","club":"KRC Genk","photo":"https://cdn.sportmonks.com/images/soccer/players/11/37600075.png"},{"id":306,"name":"Kelechi Iheanacho","club":"Bursaspor","photo":"https://cdn.sportmonks.com/images/soccer/players/16/1488.png"},{"id":307,"name":"Tolu Arokodare","club":"Ajax","photo":"https://cdn.sportmonks.com/images/soccer/players/15/37260431.png"},{"id":308,"name":"Moses Simon","club":"Paris FC","photo":"https://cdn.sportmonks.com/images/soccer/players/0/62400.png"},{"id":309,"name":"Samuel Chukwueze","club":"AC Milan","photo":"https://cdn.sportmonks.com/images/soccer/players/3/15434627.png"},{"id":310,"name":"George Ilenikhena","club":"Al-Ittihad","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37667455.png"}]},"pos":{"gk":"GB","def":"DÉF","mid":"MIL","att":"ATT"},"posFull":{"gk":"Gardiens","def":"Défenseurs","mid":"Milieux","att":"Attaquants"},"t":{"validateBtn":"Valider ma sélection","validateBtnReady":"Voir ma sélection ✓","hintIncomplete":"Choisis les joueurs restants pour continuer","hintMin":"{pos} : minimum {min} requis (actuellement {n})","hintRemainingOne":"Encore 1 joueur à choisir","hintRemainingMany":"Encore {n} joueurs à choisir","shareText":"Voici ma sélection nigériane pour le rassemblement d'octobre 2026. Qu'en penses-tu ? Fais la tienne ici :","instagramAlert":"Image téléchargée ! Partage-la directement sur Instagram.","errorFileProto":"La capture locale est bloquée en ouverture directe (file://). Lance un serveur local (ex : python3 -m http.server) ou teste sur WordPress.","errorPrefix":"Erreur : ","downloadFilename":"ma-selection-nigeria-octobre-2026.png"}};
+/* Config injectée au build (selectors/senegal-afrikfoot.json + sites/ + locales/) */
+const CONFIG = {"id":"senegal-afrikfoot","lang":"en","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Edouard Mendy","photo":"https://cdn.sportmonks.com/images/soccer/players/1/99137.png"},{"id":2,"name":"Mory Diaw","photo":"https://cdn.sportmonks.com/images/soccer/players/20/162164.png"},{"id":3,"name":"Yehvann Diouf","photo":"https://cdn.sportmonks.com/images/soccer/players/21/99157.png"},{"id":4,"name":"Seny Dieng"}],"def":[{"id":101,"name":"Kalidou Koulibaly","photo":"https://cdn.sportmonks.com/images/soccer/players/14/61806.png"},{"id":102,"name":"Moussa Niakhaté","photo":"https://cdn.sportmonks.com/images/soccer/players/26/98874.png"},{"id":103,"name":"Mamadou Sarr","photo":"https://cdn.sportmonks.com/images/soccer/players/24/37532344.png"},{"id":104,"name":"Abdoulaye Seck","photo":"https://cdn.sportmonks.com/images/soccer/players/28/153244.png"},{"id":105,"name":"Nobel Mendy"},{"id":106,"name":"Malang Sarr"},{"id":107,"name":"Moustapha Mbow","photo":"https://cdn.sportmonks.com/images/soccer/players/24/29336632.png"},{"id":108,"name":"Krépin Diatta","photo":"https://cdn.sportmonks.com/images/soccer/players/3/430403.png"},{"id":109,"name":"Antoine Mendy","photo":"https://cdn.sportmonks.com/images/soccer/players/23/37569271.png"},{"id":110,"name":"Ilay Camara","photo":"https://cdn.sportmonks.com/images/soccer/players/13/37637485.png"},{"id":111,"name":"El Hadji Malick Diouf","photo":"https://cdn.sportmonks.com/images/soccer/players/30/37685630.png"},{"id":112,"name":"Ismail Jakobs","photo":"https://cdn.sportmonks.com/images/soccer/players/24/3861304.png"}],"mid":[{"id":201,"name":"Idrissa Gana Gueye"},{"id":202,"name":"Lamine Camara","photo":"https://cdn.sportmonks.com/images/soccer/players/20/37642676.png"},{"id":203,"name":"Habib Diarra","photo":"https://cdn.sportmonks.com/images/soccer/players/8/37581992.png"},{"id":204,"name":"Pape Gueye","photo":"https://cdn.sportmonks.com/images/soccer/players/17/433169.png"},{"id":205,"name":"Pape Matar Sarr","photo":"https://cdn.sportmonks.com/images/soccer/players/6/37342694.png"},{"id":206,"name":"Pathé Ciss","photo":"https://cdn.sportmonks.com/images/soccer/players/24/2511096.png"},{"id":207,"name":"Mamadou Lamine Camara"},{"id":208,"name":"Rassoul Ndiaye"},{"id":209,"name":"Nampalys Mendy"},{"id":210,"name":"Cheikh Niasse"},{"id":211,"name":"Dion Lopy"}],"att":[{"id":301,"name":"Sadio Mané","photo":"https://cdn.sportmonks.com/images/soccer/players/13/1389.png"},{"id":302,"name":"Nicolas Jackson","photo":"https://cdn.sportmonks.com/images/soccer/players/13/37540621.png"},{"id":303,"name":"Ismaila Sarr","photo":"https://cdn.sportmonks.com/images/soccer/players/18/96722.png"},{"id":304,"name":"Iliman Ndiaye","photo":"https://cdn.sportmonks.com/images/soccer/players/24/23661272.png"},{"id":305,"name":"Ibrahim Mbaye","photo":"https://cdn.sportmonks.com/images/soccer/players/15/37726575.png"},{"id":306,"name":"Boulaye Dia"},{"id":307,"name":"Habib Diallo"},{"id":308,"name":"Cherif Ndiaye","photo":"https://cdn.sportmonks.com/images/soccer/players/28/64188.png"},{"id":309,"name":"Bamba Dieng","photo":"https://cdn.sportmonks.com/images/soccer/players/30/37541438.png"},{"id":310,"name":"Mamadou Diakhon"},{"id":311,"name":"Assane Diao","photo":"https://cdn.sportmonks.com/images/soccer/players/18/37674290.png"},{"id":312,"name":"Cheikh Sabaly"},{"id":313,"name":"Ousseynou Niang"},{"id":314,"name":"Ousmane Sow"},{"id":315,"name":"Abdallah Sima"}]},"pos":{"gk":"GK","def":"DEF","mid":"MID","att":"FOR"},"posFull":{"gk":"Goalkeepers","def":"Defenders","mid":"Midfielders","att":"Forwards"},"t":{"validateBtn":"Validate my squad","validateBtnReady":"View my squad ✓","hintIncomplete":"Pick the remaining players to continue","hintMin":"{pos}: pick at least {min} (currently {n})","hintRemainingOne":"1 more player to pick","hintRemainingMany":"{n} more players to pick","shareText":"Here is my 26-man Senegal squad for the October 2026 international break. What do you think? Build yours here:","instagramAlert":"Image downloaded! Share it directly on Instagram.","errorFileProto":"Local capture is blocked when opened directly (file://). Run a local server (e.g. python3 -m http.server) or test on WordPress.","errorPrefix":"Error: ","downloadFilename":"my-senegal-squad-october-2026.png"}};
 
 const T = CONFIG.t;
 const SQUAD_TOTAL = CONFIG.rules.total;

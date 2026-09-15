@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Pick your South Africa squad for the October 2026 international break | Afrik-Foot</title>
-<meta name="description" content="Build and share your 26-man South Africa squad for the October 2026 international break. Pick 3 goalkeepers, 7 to 9 defenders, 6 to 9 midfielders and 7 to 9 forwards.">
+<title>Elige la selección de Sudáfrica para la ventana internacional de octubre de 2026 | Afrik-Foot</title>
+<meta name="description" content="Elige a los 26 jugadores de la selección de Sudáfrica para la ventana internacional de octubre de 2026. Selecciona 3 porteros, de 7 a 9 defensas, de 6 a 9 centrocampistas y de 7 a 9 delanteros y comparte tu lista.">
 <!-- Squad Selector · south-africa-afrikfoot · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/south-africa-afrikfoot.json puis relancer le build. -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
@@ -171,23 +171,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="squad-widget">
 
   <div class="widget-header">
-    <h2>⚽ My South Africa squad · October 2026</h2>
+    <h2>⚽ Mi selección de Sudáfrica · Octubre 2026</h2>
   </div>
 
   <!-- ═══ SCREEN 1: Selection ═══ -->
   <div class="screen active" id="screen-select">
     <div class="intro">
-      <div class="intro-title">⚠️ How to pick your squad</div>
-      <p class="intro-lead">Pick the 26 players you would call up for the October 2026 international break</p>
+      <div class="intro-title">⚠️ Cómo elegir tu lista</div>
+      <p class="intro-lead">Elige a los 26 jugadores que convocarías para la ventana internacional de octubre de 2026</p>
       <ol class="intro-steps">
-        <li>You can choose: 3 goalkeepers, 7 to 9 defenders, 6 to 9 midfielders and 7 to 9 forwards (total must equal 26).</li>
-        <li>Click on the position tabs to switch between GK, DEF, MID and FOR.</li>
-        <li>Validate the list, see it on the pitch and share it.</li>
+        <li>Puedes elegir: 3 porteros, de 7 a 9 defensas, de 6 a 9 centrocampistas y de 7 a 9 delanteros (total = 26).</li>
+        <li>Haz clic en las pestañas de posición para navegar entre POR, DEF, MED y DEL.</li>
+        <li>Valida tu lista, revísala en el campo y compártela.</li>
       </ol>
     </div>
 
     <div class="progress">
-      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> selected</div>
+      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> seleccionados</div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
 
@@ -202,20 +202,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
 
     <button class="validate-btn" id="btnValidate" onclick="validateSelection()" disabled>
-      <span id="btnValidateLabel">Validate my squad</span>
+      <span id="btnValidateLabel">Validar mi selección</span>
     </button>
-    <div class="validate-hint" id="validateHint">Pick the remaining players to continue</div>
+    <div class="validate-hint" id="validateHint">Elige a los jugadores restantes para continuar</div>
 
-    <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+    <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
   </div>
 
   <!-- ═══ SCREEN 2: Pitch + Share ═══ -->
   <div class="screen" id="screen-pitch">
-    <button class="edit-btn" onclick="editSelection()">← Edit my selection</button>
+    <button class="edit-btn" onclick="editSelection()">← Modificar mi selección</button>
 
     <div class="pitch-wrap">
       <div class="pitch-container" id="pitchContainer">
-        <div class="pitch-title">My 26-man squad<br>South Africa · October 2026</div>
+        <div class="pitch-title">Mi selección<br>Sudáfrica · Octubre 2026</div>
         <div class="pitch" id="pitch">
           <div class="pitch-lines">
             <div class="halfway"></div>
@@ -229,16 +229,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
 
       <div class="share-section">
-        <button class="share-btn dl" onclick="downloadImage()">📥 Download image</button>
+        <button class="share-btn dl" onclick="downloadImage()">📥 Descargar imagen</button>
         <div class="share-buttons">
-          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Share</button>
+          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Compartir</button>
           <button class="share-btn fb" onclick="shareOn('facebook')">Facebook</button>
           <button class="share-btn wa" onclick="shareOn('whatsapp')">WhatsApp</button>
           <button class="share-btn ig" onclick="shareOn('instagram')">Instagram</button>
         </div>
       </div>
 
-      <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+      <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
     </div>
   </div>
 
@@ -246,7 +246,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <script>
 /* Config injectée au build (selectors/south-africa-afrikfoot.json + sites/ + locales/) */
-const CONFIG = {"id":"south-africa-afrikfoot","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Sipho Chaine","photo":"https://cdn.sportmonks.com/images/soccer/players/0/289600.png"},{"id":2,"name":"Ricardo Goss","photo":"https://cdn.sportmonks.com/images/soccer/players/4/289380.png"},{"id":3,"name":"Renaldo Leaner"},{"id":4,"name":"Brandon Petersen"},{"id":5,"name":"Ronwen Williams","photo":"https://cdn.sportmonks.com/images/soccer/players/22/287894.png"}],"def":[{"id":101,"name":"Samukelo Kabini"},{"id":102,"name":"Grant Kekana"},{"id":103,"name":"Aden McCarthy"},{"id":104,"name":"Mbekezeli Mbokazi","photo":"https://cdn.sportmonks.com/images/soccer/players/2/37910690.png"},{"id":105,"name":"Aubrey Modiba","photo":"https://cdn.sportmonks.com/images/soccer/players/8/289096.png"},{"id":106,"name":"Thabiso Monyane"},{"id":107,"name":"Khuliso Mudau","photo":"https://cdn.sportmonks.com/images/soccer/players/4/1504516.png"},{"id":108,"name":"Khulumani Ndamane","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37760511.png"},{"id":109,"name":"Siyabonga Ngezana"},{"id":110,"name":"Ime Okon","photo":"https://cdn.sportmonks.com/images/soccer/players/2/37681890.png"},{"id":111,"name":"Kamogelo Sebelebele","photo":"https://cdn.sportmonks.com/images/soccer/players/0/37622976.png"},{"id":112,"name":"Nkosinathi Sibisi","photo":"https://cdn.sportmonks.com/images/soccer/players/22/289686.png"}],"mid":[{"id":201,"name":"Jayden Adams","photo":"https://cdn.sportmonks.com/images/soccer/players/11/37528875.png"},{"id":202,"name":"Bathusi Aubaas"},{"id":203,"name":"Lebohang Maboe"},{"id":204,"name":"Patrick Maswanganyi"},{"id":205,"name":"Thalente Mbatha","photo":"https://cdn.sportmonks.com/images/soccer/players/0/37392896.png"},{"id":206,"name":"Relebohile Mofokeng","photo":"https://cdn.sportmonks.com/images/soccer/players/23/37690743.png"},{"id":207,"name":"Teboho Mokoena","photo":"https://cdn.sportmonks.com/images/soccer/players/29/289341.png"},{"id":208,"name":"Sphephelo Sithole"},{"id":209,"name":"Themba Zwane","photo":"https://cdn.sportmonks.com/images/soccer/players/19/288275.png"}],"att":[{"id":301,"name":"Oswin Appollis","photo":"https://cdn.sportmonks.com/images/soccer/players/23/36084791.png"},{"id":302,"name":"Lyle Foster","photo":"https://cdn.sportmonks.com/images/soccer/players/30/4243070.png"},{"id":303,"name":"Evidence Makgopa","photo":"https://cdn.sportmonks.com/images/soccer/players/8/37438632.png"},{"id":304,"name":"Thapelo Maseko","photo":"https://cdn.sportmonks.com/images/soccer/players/25/37618713.png"},{"id":305,"name":"Tashreeq Matthews"},{"id":306,"name":"Tshepang Moremi","photo":"https://cdn.sportmonks.com/images/soccer/players/29/37551389.png"},{"id":307,"name":"Siyanda Ndlovu"},{"id":308,"name":"Mohau Nkota"},{"id":309,"name":"Iqraam Rayners","photo":"https://cdn.sportmonks.com/images/soccer/players/27/1504475.png"}]},"pos":{"gk":"GK","def":"DEF","mid":"MID","att":"FOR"},"posFull":{"gk":"Goalkeepers","def":"Defenders","mid":"Midfielders","att":"Forwards"},"t":{"validateBtn":"Validate my squad","validateBtnReady":"View my squad ✓","hintIncomplete":"Pick the remaining players to continue","hintMin":"{pos}: pick at least {min} (currently {n})","hintRemainingOne":"1 more player to pick","hintRemainingMany":"{n} more players to pick","shareText":"Here is my 26-man South Africa squad for the October 2026 international break. What do you think? Build yours here:","instagramAlert":"Image downloaded! Share it directly on Instagram.","errorFileProto":"Local capture is blocked when opened directly (file://). Run a local server (e.g. python3 -m http.server) or test on WordPress.","errorPrefix":"Error: ","downloadFilename":"my-south-africa-squad-october-2026.png"}};
+const CONFIG = {"id":"south-africa-afrikfoot","lang":"es","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Sipho Chaine","photo":"https://cdn.sportmonks.com/images/soccer/players/0/289600.png"},{"id":2,"name":"Ricardo Goss","photo":"https://cdn.sportmonks.com/images/soccer/players/4/289380.png"},{"id":3,"name":"Renaldo Leaner"},{"id":4,"name":"Brandon Petersen"},{"id":5,"name":"Ronwen Williams","photo":"https://cdn.sportmonks.com/images/soccer/players/22/287894.png"}],"def":[{"id":101,"name":"Samukelo Kabini"},{"id":102,"name":"Grant Kekana"},{"id":103,"name":"Aden McCarthy"},{"id":104,"name":"Mbekezeli Mbokazi","photo":"https://cdn.sportmonks.com/images/soccer/players/2/37910690.png"},{"id":105,"name":"Aubrey Modiba","photo":"https://cdn.sportmonks.com/images/soccer/players/8/289096.png"},{"id":106,"name":"Thabiso Monyane"},{"id":107,"name":"Khuliso Mudau","photo":"https://cdn.sportmonks.com/images/soccer/players/4/1504516.png"},{"id":108,"name":"Khulumani Ndamane","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37760511.png"},{"id":109,"name":"Siyabonga Ngezana"},{"id":110,"name":"Ime Okon","photo":"https://cdn.sportmonks.com/images/soccer/players/2/37681890.png"},{"id":111,"name":"Kamogelo Sebelebele","photo":"https://cdn.sportmonks.com/images/soccer/players/0/37622976.png"},{"id":112,"name":"Nkosinathi Sibisi","photo":"https://cdn.sportmonks.com/images/soccer/players/22/289686.png"}],"mid":[{"id":201,"name":"Jayden Adams","photo":"https://cdn.sportmonks.com/images/soccer/players/11/37528875.png"},{"id":202,"name":"Bathusi Aubaas"},{"id":203,"name":"Lebohang Maboe"},{"id":204,"name":"Patrick Maswanganyi"},{"id":205,"name":"Thalente Mbatha","photo":"https://cdn.sportmonks.com/images/soccer/players/0/37392896.png"},{"id":206,"name":"Relebohile Mofokeng","photo":"https://cdn.sportmonks.com/images/soccer/players/23/37690743.png"},{"id":207,"name":"Teboho Mokoena","photo":"https://cdn.sportmonks.com/images/soccer/players/29/289341.png"},{"id":208,"name":"Sphephelo Sithole"},{"id":209,"name":"Themba Zwane","photo":"https://cdn.sportmonks.com/images/soccer/players/19/288275.png"}],"att":[{"id":301,"name":"Oswin Appollis","photo":"https://cdn.sportmonks.com/images/soccer/players/23/36084791.png"},{"id":302,"name":"Lyle Foster","photo":"https://cdn.sportmonks.com/images/soccer/players/30/4243070.png"},{"id":303,"name":"Evidence Makgopa","photo":"https://cdn.sportmonks.com/images/soccer/players/8/37438632.png"},{"id":304,"name":"Thapelo Maseko","photo":"https://cdn.sportmonks.com/images/soccer/players/25/37618713.png"},{"id":305,"name":"Tashreeq Matthews"},{"id":306,"name":"Tshepang Moremi","photo":"https://cdn.sportmonks.com/images/soccer/players/29/37551389.png"},{"id":307,"name":"Siyanda Ndlovu"},{"id":308,"name":"Mohau Nkota"},{"id":309,"name":"Iqraam Rayners","photo":"https://cdn.sportmonks.com/images/soccer/players/27/1504475.png"}]},"pos":{"gk":"POR","def":"DEF","mid":"MED","att":"DEL"},"posFull":{"gk":"Porteros","def":"Defensas","mid":"Centrocampistas","att":"Delanteros"},"t":{"validateBtn":"Validar mi selección","validateBtnReady":"Ver mi selección ✓","hintIncomplete":"Elige a los jugadores restantes para continuar","hintMin":"{pos}: mínimo {min} (ahora {n})","hintRemainingOne":"Falta 1 jugador","hintRemainingMany":"Faltan {n} jugadores","shareText":"Esta es mi selección de Sudáfrica para la ventana internacional de octubre de 2026. ¿Qué te parece? Haz la tuya aquí:","instagramAlert":"¡Imagen descargada! Compártela directamente en Instagram.","errorFileProto":"La captura local está bloqueada al abrir el archivo directamente (file://). Inicia un servidor local (p. ej. node serve.mjs) o prueba en WordPress.","errorPrefix":"Error: ","downloadFilename":"mi-seleccion-sudafrica-octubre-2026.png"}};
 
 const T = CONFIG.t;
 const SQUAD_TOTAL = CONFIG.rules.total;

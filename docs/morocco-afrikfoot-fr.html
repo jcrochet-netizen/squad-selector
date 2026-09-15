@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Monte a seleção do Brasil para a Data Fifa de outubro de 2026 | Um Dois Esportes</title>
-<meta name="description" content="Escolha os 26 jogadores da seleção do Brasil para a Data Fifa de outubro de 2026. Selecione 3 goleiros, de 7 a 9 defensores, de 6 a 9 meio-campistas e de 7 a 9 atacantes e compartilhe a sua lista.">
-<!-- Squad Selector · brazil-umdoisesportes · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/brazil-umdoisesportes.json puis relancer le build. -->
+<title>Compose la sélection marocaine pour le rassemblement d&#39;octobre 2026 | Afrik-Foot</title>
+<meta name="description" content="Choisis les 26 joueurs de la sélection marocaine pour le rassemblement d&#39;octobre 2026. Sélectionne 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants, puis partage ta sélection.">
+<!-- Squad Selector · morocco-afrikfoot · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/morocco-afrikfoot.json puis relancer le build. -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
 /* ── Reset & Variables (valeurs par défaut = thème clair) ───────── */
@@ -24,7 +24,7 @@
   --radius:10px;--widget-max:720px;--grid-cols:repeat(2,1fr);
 }
 /* ── Thème du site ──────────────────────────────────────────────── */
-:root{--widget-max:920px;--grid-cols:repeat(auto-fill,minmax(220px,1fr));--heading:#1a1a1a;--tab-active-bg:#f2c14b;--tab-active-border:#d9a83a;--tab-active-text:#1a1a1a}
+:root{--widget-max:800px;--grid-cols:repeat(2,1fr);--bg:#1a1a1a;--card:#2a2a2a;--card-hover:#353535;--card-selected:#2a361a;--accent:#6d8d3f;--accent-dark:#5a7333;--accent-text:#94b855;--text:#f5f5f5;--text-muted:#a8a8a8;--heading:#ffffff;--border:#555555;--pos-def:#2e7d32;--done-bg:#1e3a23;--done-text:#5ec46f;--initials-ring:rgba(255,255,255,.15);--photo-bg:#3a3a3a}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.4}
 
 /* ── Widget Container ───────────────────────────────────────────── */
@@ -171,23 +171,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="squad-widget">
 
   <div class="widget-header">
-    <h2>Você é o técnico: convoque seus 26 jogadores</h2>
+    <h2>⚽ Ma sélection du Maroc · Octobre 2026</h2>
   </div>
 
   <!-- ═══ SCREEN 1: Selection ═══ -->
   <div class="screen active" id="screen-select">
     <div class="intro">
-      <div class="intro-title">⚠️ Eleja seus convocados</div>
-      <p class="intro-lead">Defina 26 atletas para o seu elenco para a Data Fifa de outubro de 2026</p>
+      <div class="intro-title">⚠️ Mode d&#39;emploi</div>
+      <p class="intro-lead">Choisis les 26 joueurs marocains que tu convoquerais pour le rassemblement d&#39;octobre 2026</p>
       <ol class="intro-steps">
-        <li>São 3 goleiros, de 7 a 9 defensores, de 6 a 9 meio-campistas e de 7 a 9 atacantes.</li>
-        <li>Selecione nas abas de posições para navegar entre GOL, DEF, MEI e ATA.</li>
-        <li>Verifique as escolhas, confira a lista no campinho e compartilhe.</li>
+        <li>Tu peux choisir : 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants (total = 26).</li>
+        <li>Clique sur les onglets des positions pour naviguer entre GB, DÉF, MIL et ATT.</li>
+        <li>Valide ta liste, vérifie-la sur le terrain et partage-la.</li>
       </ol>
     </div>
 
     <div class="progress">
-      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> selecionados</div>
+      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> sélectionnés</div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
 
@@ -202,20 +202,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
 
     <button class="validate-btn" id="btnValidate" onclick="validateSelection()" disabled>
-      <span id="btnValidateLabel">Validar minha seleção</span>
+      <span id="btnValidateLabel">Valider ma sélection</span>
     </button>
-    <div class="validate-hint" id="validateHint">Escolha os jogadores restantes para continuar</div>
+    <div class="validate-hint" id="validateHint">Choisis les joueurs restants pour continuer</div>
 
-    <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
+    <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
   </div>
 
   <!-- ═══ SCREEN 2: Pitch + Share ═══ -->
   <div class="screen" id="screen-pitch">
-    <button class="edit-btn" onclick="editSelection()">← Editar minha seleção</button>
+    <button class="edit-btn" onclick="editSelection()">← Modifier ma sélection</button>
 
     <div class="pitch-wrap">
       <div class="pitch-container" id="pitchContainer">
-        <div class="pitch-title">Minha seleção<br>Brasil · Outubro 2026</div>
+        <div class="pitch-title">Ma sélection<br>Maroc · Octobre 2026</div>
         <div class="pitch" id="pitch">
           <div class="pitch-lines">
             <div class="halfway"></div>
@@ -229,24 +229,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
 
       <div class="share-section">
-        <button class="share-btn dl" onclick="downloadImage()">📥 Baixar imagem</button>
+        <button class="share-btn dl" onclick="downloadImage()">📥 Télécharger l&#39;image</button>
         <div class="share-buttons">
-          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Compartilhar</button>
+          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Partager</button>
           <button class="share-btn fb" onclick="shareOn('facebook')">Facebook</button>
           <button class="share-btn wa" onclick="shareOn('whatsapp')">WhatsApp</button>
           <button class="share-btn ig" onclick="shareOn('instagram')">Instagram</button>
         </div>
       </div>
 
-      <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
+      <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
     </div>
   </div>
 
 </div>
 
 <script>
-/* Config injectée au build (selectors/brazil-umdoisesportes.json + sites/ + locales/) */
-const CONFIG = {"id":"brazil-umdoisesportes","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Alisson","photo":"https://cdn.sportmonks.com/images/soccer/players/28/129820.png"},{"id":2,"name":"Ederson Moraes","displayName":"Ederson M."},{"id":3,"name":"Bento"},{"id":4,"name":"Hugo Souza","displayName":"H.Souza"},{"id":5,"name":"Weverton","photo":"https://cdn.sportmonks.com/images/soccer/players/23/218295.png"}],"def":[{"id":101,"name":"Alex Sandro","photo":"https://cdn.sportmonks.com/images/soccer/players/29/129725.png"},{"id":102,"name":"Bremer","photo":"https://cdn.sportmonks.com/images/soccer/players/23/1167415.png"},{"id":103,"name":"Danilo"},{"id":104,"name":"Douglas Santos","photo":"https://cdn.sportmonks.com/images/soccer/players/6/32614.png"},{"id":105,"name":"Gabriel Magalhães","photo":"https://cdn.sportmonks.com/images/soccer/players/19/97811.png"},{"id":106,"name":"Léo Pereira","photo":"https://cdn.sportmonks.com/images/soccer/players/23/218871.png"},{"id":107,"name":"Marquinhos","photo":"https://cdn.sportmonks.com/images/soccer/players/16/96208.png"},{"id":108,"name":"Wesley"},{"id":109,"name":"Ibañez"},{"id":110,"name":"Alexsandro Ribeiro"},{"id":111,"name":"Fabrício Bruno"},{"id":112,"name":"Vítor Reis","displayName":"V. Reis"},{"id":113,"name":"Vanderson"},{"id":114,"name":"Léo Ortiz"},{"id":115,"name":"Thiago Silva","displayName":"T.Silva"}],"mid":[{"id":201,"name":"Andrey Santos"},{"id":202,"name":"Bruno Guimarães","displayName":"B.Guimarães","photo":"https://cdn.sportmonks.com/images/soccer/players/9/459145.png"},{"id":203,"name":"Casemiro","photo":"https://cdn.sportmonks.com/images/soccer/players/20/159700.png"},{"id":204,"name":"Danilo Santos","photo":"https://cdn.sportmonks.com/images/soccer/players/5/37533413.png"},{"id":205,"name":"Fabinho","photo":"https://cdn.sportmonks.com/images/soccer/players/3/96099.png"},{"id":206,"name":"Lucas Paquetá","photo":"https://cdn.sportmonks.com/images/soccer/players/20/220052.png"},{"id":207,"name":"Gabriel Sara"},{"id":208,"name":"André"},{"id":209,"name":"Joelinton"},{"id":210,"name":"Gerson"},{"id":211,"name":"Ederson","photo":"https://cdn.sportmonks.com/images/soccer/players/28/545244.png"},{"id":212,"name":"João Gomes","displayName":"J. Gomes"},{"id":213,"name":"Andreas Pereira","displayName":"A.Pereira"}],"att":[{"id":301,"name":"Endrick","photo":"https://cdn.sportmonks.com/images/soccer/players/1/37647009.png"},{"id":302,"name":"Gabriel Martinelli","photo":"https://cdn.sportmonks.com/images/soccer/players/28/10959356.png"},{"id":303,"name":"Igor Thiago","photo":"https://cdn.sportmonks.com/images/soccer/players/4/37407204.png"},{"id":304,"name":"João Pedro","displayName":"J.Pedro"},{"id":305,"name":"Luiz Henrique","displayName":"L.Henrique","photo":"https://cdn.sportmonks.com/images/soccer/players/24/37526008.png"},{"id":306,"name":"Matheus Cunha","displayName":"M.Cunha","photo":"https://cdn.sportmonks.com/images/soccer/players/19/1846739.png"},{"id":307,"name":"Raphinha","photo":"https://cdn.sportmonks.com/images/soccer/players/2/160258.png"},{"id":308,"name":"Vinicius Júnior","displayName":"Vinicius","photo":"https://cdn.sportmonks.com/images/soccer/players/15/600687.png"},{"id":309,"name":"Neymar","photo":"https://cdn.sportmonks.com/images/soccer/players/16/186320.png"},{"id":310,"name":"Antony"},{"id":311,"name":"Rayan","photo":"https://cdn.sportmonks.com/images/soccer/players/15/37679567.png"},{"id":312,"name":"Igor Jesus"},{"id":313,"name":"Pedro"},{"id":314,"name":"Richarlison"},{"id":315,"name":"Kaio Jorge"}]},"pos":{"gk":"GOL","def":"DEF","mid":"MEI","att":"ATA"},"posFull":{"gk":"Goleiros","def":"Defensores","mid":"Meio-campistas","att":"Atacantes"},"t":{"validateBtn":"Validar minha seleção","validateBtnReady":"Ver minha seleção ✓","hintIncomplete":"Escolha os jogadores restantes para continuar","hintMin":"{pos}: mínimo de {min} obrigatório (atualmente {n})","hintRemainingOne":"Falta 1 jogador","hintRemainingMany":"Faltam {n} jogadores","shareText":"Aqui está minha seleção do Brasil para a Data Fifa de outubro de 2026. O que você acha? Monte a sua aqui:","instagramAlert":"Imagem baixada! Compartilhe direto no Instagram.","errorFileProto":"A captura local está bloqueada na abertura direta (file://). Inicie um servidor local (ex.: python3 -m http.server) ou teste no WordPress.","errorPrefix":"Erro: ","downloadFilename":"minha-selecao-brasil-outubro-2026.png"}};
+/* Config injectée au build (selectors/morocco-afrikfoot.json + sites/ + locales/) */
+const CONFIG = {"id":"morocco-afrikfoot","lang":"fr","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Yassine Bounou","photo":"https://cdn.sportmonks.com/images/soccer/players/31/186591.png"},{"id":2,"name":"El Mehdi Benabid"},{"id":3,"name":"El Mehdi Al Harrar"},{"id":4,"name":"Munir El Kajoui"}],"def":[{"id":101,"name":"Nayef Aguerd"},{"id":102,"name":"Issa Diop","photo":"https://cdn.sportmonks.com/images/soccer/players/31/96799.png"},{"id":103,"name":"Chadi Riad","photo":"https://cdn.sportmonks.com/images/soccer/players/17/37537937.png"},{"id":104,"name":"Abdelhamid Aït Boudlal"},{"id":105,"name":"Adam Masina"},{"id":106,"name":"Jawad El Yamiq"},{"id":107,"name":"Redouane Halhal","photo":"https://cdn.sportmonks.com/images/soccer/players/3/37582883.png"},{"id":108,"name":"Ismaël Baouf"},{"id":109,"name":"Achraf Hakimi","photo":"https://cdn.sportmonks.com/images/soccer/players/28/187260.png"},{"id":110,"name":"Zakaria El Ouahdi","photo":"https://cdn.sportmonks.com/images/soccer/players/12/37540780.png"},{"id":111,"name":"Omar El Hilali"},{"id":112,"name":"Mohamed Chibi"},{"id":113,"name":"Noussair Mazraoui","photo":"https://cdn.sportmonks.com/images/soccer/players/12/28716.png"},{"id":114,"name":"Anass Salah-Eddine","photo":"https://cdn.sportmonks.com/images/soccer/players/3/23661347.png"},{"id":115,"name":"Souffian El Karouani"},{"id":116,"name":"Youssef Belammari","photo":"https://cdn.sportmonks.com/images/soccer/players/6/37317062.png"}],"mid":[{"id":201,"name":"Neil El Aynaoui","photo":"https://cdn.sportmonks.com/images/soccer/players/20/21803060.png"},{"id":202,"name":"Azzedine Ounahi","photo":"https://cdn.sportmonks.com/images/soccer/players/25/21803033.png"},{"id":203,"name":"Ismael Saibari","photo":"https://cdn.sportmonks.com/images/soccer/players/26/37317434.png"},{"id":204,"name":"Bilal El Khannouss","photo":"https://cdn.sportmonks.com/images/soccer/players/5/37559109.png"},{"id":205,"name":"Samir El Mourabet","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37692095.png"},{"id":206,"name":"Oussama Targhalline"},{"id":207,"name":"Sofyan Amrabat","photo":"https://cdn.sportmonks.com/images/soccer/players/17/25489.png"},{"id":208,"name":"Ayyoub Bouaddi","photo":"https://cdn.sportmonks.com/images/soccer/players/24/37717176.png"},{"id":209,"name":"Mohamed Rabie Hrimat"},{"id":210,"name":"Imran Louza"}],"att":[{"id":301,"name":"Brahim Diaz","photo":"https://cdn.sportmonks.com/images/soccer/players/22/340342.png"},{"id":302,"name":"Ayoub El Kaabi","photo":"https://cdn.sportmonks.com/images/soccer/players/19/10631219.png"},{"id":303,"name":"Ez Abde"},{"id":304,"name":"Soufiane Rahimi","photo":"https://cdn.sportmonks.com/images/soccer/players/17/20316497.png"},{"id":305,"name":"Yassine Gessime"},{"id":306,"name":"Youssef En-Nesyri"},{"id":307,"name":"Ilias Akhomach"},{"id":308,"name":"Rayane Bounida"},{"id":309,"name":"Hakim Ziyech"},{"id":310,"name":"Sofiane Boufal"},{"id":311,"name":"Yassir Zabiri"},{"id":312,"name":"Chemsdine Talbi","photo":"https://cdn.sportmonks.com/images/soccer/players/10/37590634.png"},{"id":313,"name":"Amine Adli"},{"id":314,"name":"Eliesse Ben Seghir"},{"id":315,"name":"Othmane Maamma"},{"id":316,"name":"Yanis Begraoui"},{"id":317,"name":"Sofiane Diop"}]},"pos":{"gk":"GB","def":"DÉF","mid":"MIL","att":"ATT"},"posFull":{"gk":"Gardiens","def":"Défenseurs","mid":"Milieux","att":"Attaquants"},"t":{"validateBtn":"Valider ma sélection","validateBtnReady":"Voir ma sélection ✓","hintIncomplete":"Choisis les joueurs restants pour continuer","hintMin":"{pos} : minimum {min} requis (actuellement {n})","hintRemainingOne":"Encore 1 joueur à choisir","hintRemainingMany":"Encore {n} joueurs à choisir","shareText":"Voici ma sélection marocaine pour le rassemblement d'octobre 2026. Qu'en penses-tu ? Fais la tienne ici :","instagramAlert":"Image téléchargée ! Partage-la directement sur Instagram.","errorFileProto":"La capture locale est bloquée en ouverture directe (file://). Lance un serveur local (ex : python3 -m http.server) ou teste sur WordPress.","errorPrefix":"Erreur : ","downloadFilename":"ma-selection-maroc-octobre-2026.png"}};
 
 const T = CONFIG.t;
 const SQUAD_TOTAL = CONFIG.rules.total;

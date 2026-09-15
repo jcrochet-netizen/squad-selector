@@ -5,8 +5,8 @@
    node fetch-photos.mjs england-sportsmole --all    → re-vérifie tous les joueurs
 
    - Token : SPORTMONKS_API_TOKEN (variable d'environnement ou fichier .env)
-   - Le sélecteur doit indiquer la nationalité SportMonks :
-       "sportmonks": { "nationalityId": 462 }   (462 = England)
+   - Le fichier pays doit indiquer la nationalité SportMonks :
+       countries/england.json → "sportmonksNationalityId": 462
    - Un joueur avec "sportmonksId" est récupéré directement par son id
      (c'est la façon de trancher un homonyme).
    - Sinon : recherche par nom, filtrée par nationalité, photos
@@ -50,9 +50,11 @@ if (!fs.existsSync(file)) {
   process.exit(1);
 }
 const sel = JSON.parse(fs.readFileSync(file, "utf8"));
-const nationalityId = sel.sportmonks && sel.sportmonks.nationalityId;
+const countryFile = path.join(ROOT, "countries", `${sel.country}.json`);
+const countryData = fs.existsSync(countryFile) ? JSON.parse(fs.readFileSync(countryFile, "utf8")) : {};
+const nationalityId = countryData.sportmonksNationalityId;
 if (!nationalityId) {
-  console.error(`✖ Ajouter "sportmonks": { "nationalityId": <id> } dans selectors/${id}.json`);
+  console.error(`✖ Ajouter "sportmonksNationalityId": <id> dans countries/${sel.country}.json`);
   process.exit(1);
 }
 

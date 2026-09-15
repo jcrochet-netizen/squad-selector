@@ -1,6 +1,5 @@
 {
   "name": "TopMercato",
-  "locale": "fr",
   "maxWidth": 1100,
   "gridCols": "repeat(auto-fill,minmax(220px,1fr))",
   "vars": {}

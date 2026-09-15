@@ -1,15 +1,7 @@
 {
   "site": "afrikfoot",
-  "country": {
-    "name": "Algérie",
-    "of": "de l'Algérie",
-    "adj": "algérienne",
-    "demonym": "algériens"
-  },
-  "event": {
-    "long": "le rassemblement d'octobre 2026",
-    "short": "Octobre 2026"
-  },
+  "country": "algeria",
+  "event": "2026-10",
   "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
   "players": {
     "gk": [

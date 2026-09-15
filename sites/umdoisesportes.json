@@ -1,6 +1,5 @@
 {
   "name": "Um Dois Esportes",
-  "locale": "pt-BR",
   "maxWidth": 920,
   "gridCols": "repeat(auto-fill,minmax(220px,1fr))",
   "vars": {

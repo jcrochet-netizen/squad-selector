@@ -1,0 +1,41 @@
+{
+  "pos": { "gk": "GB", "def": "DÉF", "mid": "MIL", "att": "ATT" },
+  "posFull": { "gk": "Gardiens", "def": "Défenseurs", "mid": "Milieux", "att": "Attaquants" },
+  "units": {
+    "gk": ["gardien", "gardiens"],
+    "def": ["défenseur", "défenseurs"],
+    "mid": ["milieu", "milieux"],
+    "att": ["attaquant", "attaquants"]
+  },
+  "rangeExact": "{n} {unit}",
+  "rangeBetween": "{min} à {max} {unit}",
+  "listSep": ", ",
+  "listLast": " et ",
+  "t": {
+    "pageTitle": "Compose la sélection {countryAdj} pour {event} | {site}",
+    "metaDescription": "Choisis les {total} joueurs de la sélection {countryAdj} pour {event}. Sélectionne {rules}, puis partage ta sélection.",
+    "heading": "⚽ Ma sélection {countryOf} · {eventShort}",
+    "introTitle": "⚠️ Mode d'emploi",
+    "introLead": "Choisis les {total} joueurs {countryDemonym} que tu convoquerais pour {event}",
+    "introRules": "Tu peux choisir : {rules} (total = {total}).",
+    "introTabs": "Clique sur les onglets des positions pour naviguer entre {tabs}.",
+    "introShare": "Valide ta liste, vérifie-la sur le terrain et partage-la.",
+    "selected": "sélectionnés",
+    "validateBtn": "Valider ma sélection",
+    "validateBtnReady": "Voir ma sélection ✓",
+    "hintIncomplete": "Choisis les joueurs restants pour continuer",
+    "hintMin": "{pos} : minimum {min} requis (actuellement {n})",
+    "hintRemainingOne": "Encore 1 joueur à choisir",
+    "hintRemainingMany": "Encore {n} joueurs à choisir",
+    "reset": "↺ Réinitialiser",
+    "edit": "← Modifier ma sélection",
+    "pitchTitle": "Ma sélection<br>{country} · {eventShort}",
+    "download": "📥 Télécharger l'image",
+    "shareX": "𝕏 Partager",
+    "shareText": "Voici ma sélection {countryAdj} pour {event}. Qu'en penses-tu ? Fais la tienne ici :",
+    "instagramAlert": "Image téléchargée ! Partage-la directement sur Instagram.",
+    "errorFileProto": "La capture locale est bloquée en ouverture directe (file://). Lance un serveur local (ex : python3 -m http.server) ou teste sur WordPress.",
+    "errorPrefix": "Erreur : ",
+    "downloadFilename": "ma-selection-{slug}-{eventSlug}.png"
+  }
+}

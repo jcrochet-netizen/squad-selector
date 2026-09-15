@@ -1,0 +1,76 @@
+{
+  "site": "sportsmole",
+  "country": {
+    "name": "England"
+  },
+  "event": {
+    "long": "the October 2026 international break",
+    "short": "October 2026"
+  },
+  "sportmonks": { "nationalityId": 462 },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Jordan Pickford", "sportmonksId": 1826, "photo": "https://cdn.sportmonks.com/images/soccer/players/2/1826.png"},
+      {"name": "Dean Henderson", "sportmonksId": 12647, "photo": "https://cdn.sportmonks.com/images/soccer/players/7/12647.png"},
+      {"name": "James Trafford", "sportmonksId": 28575686, "photo": "https://cdn.sportmonks.com/images/soccer/players/6/28575686.png"},
+      {"name": "Carl Rushworth", "sportmonksId": 28912807, "photo": "https://cdn.sportmonks.com/images/soccer/players/7/28912807.png"}
+    ],
+    "def": [
+      {"name": "Nico O'Reilly", "sportmonksId": 37562487, "photo": "https://cdn.sportmonks.com/images/soccer/players/23/37562487.png"},
+      {"name": "Marc Guéhi", "sportmonksId": 4536500, "photo": "https://cdn.sportmonks.com/images/soccer/players/20/4536500.png"},
+      {"name": "Reece James", "sportmonksId": 581220, "photo": "https://cdn.sportmonks.com/images/soccer/players/4/581220.png"},
+      {"name": "Trent Alexander-Arnold", "sportmonksId": 1917, "photo": "https://cdn.sportmonks.com/images/soccer/players/29/1917.png"},
+      {"name": "Levi Colwill", "sportmonksId": 37259180, "photo": "https://cdn.sportmonks.com/images/soccer/players/12/37259180.png"},
+      {"name": "Jarell Quansah", "sportmonksId": 37259163, "photo": "https://cdn.sportmonks.com/images/soccer/players/27/37259163.png"},
+      {"name": "Tino Livramento", "sportmonksId": 24799911, "photo": "https://cdn.sportmonks.com/images/soccer/players/7/24799911.png"},
+      {"name": "Ezri Konsa", "sportmonksId": 7124, "photo": "https://cdn.sportmonks.com/images/soccer/players/20/7124.png"},
+      {"name": "Lewis Hall", "sportmonksId": 37459072, "photo": "https://cdn.sportmonks.com/images/soccer/players/0/37459072.png"},
+      {"name": "Jarrad Branthwaite", "sportmonksId": 32404895, "photo": "https://cdn.sportmonks.com/images/soccer/players/31/32404895.png"},
+      {"name": "Djed Spence", "sportmonksId": 7026573, "photo": "https://cdn.sportmonks.com/images/soccer/players/13/7026573.png"},
+      {"name": "Trevoh Chalobah", "sportmonksId": 537117, "photo": "https://cdn.sportmonks.com/images/soccer/players/29/537117.png"},
+      {"name": "Archie Gray", "sportmonksId": 37581741, "photo": "https://cdn.sportmonks.com/images/soccer/players/13/37581741.png"},
+      {"name": "Ben White", "sportmonksId": 3259, "photo": "https://cdn.sportmonks.com/images/soccer/players/27/3259.png"},
+      {"name": "Tyrick Mitchell", "sportmonksId": 4598710, "photo": "https://cdn.sportmonks.com/images/soccer/players/22/4598710.png"},
+      {"name": "Josh Acheampong", "sportmonksId": 37631362, "photo": "https://cdn.sportmonks.com/images/soccer/players/2/37631362.png"},
+      {"name": "Leif Davis", "sportmonksId": 25567988, "photo": "https://cdn.sportmonks.com/images/soccer/players/20/25567988.png"},
+      {"name": "John Stones", "sportmonksId": 982, "photo": "https://cdn.sportmonks.com/images/soccer/players/22/982.png"},
+      {"name": "Luke Shaw", "sportmonksId": 955, "photo": "https://cdn.sportmonks.com/images/soccer/players/27/955.png"},
+      {"name": "Harry Maguire", "sportmonksId": 2884, "photo": "https://cdn.sportmonks.com/images/soccer/players/4/2884.png"},
+      {"name": "James Tarkowski", "sportmonksId": 1639, "photo": "https://cdn.sportmonks.com/images/soccer/players/7/1639.png"}
+    ],
+    "mid": [
+      {"name": "Declan Rice", "sportmonksId": 5273, "photo": "https://cdn.sportmonks.com/images/soccer/players/25/5273.png"},
+      {"name": "Jude Bellingham", "sportmonksId": 37255840, "photo": "https://cdn.sportmonks.com/images/soccer/players/0/37255840.png"},
+      {"name": "Conor Gallagher", "sportmonksId": 1494245, "photo": "https://cdn.sportmonks.com/images/soccer/players/5/1494245.png"},
+      {"name": "Elliot Anderson", "sportmonksId": 332047, "photo": "https://cdn.sportmonks.com/images/soccer/players/15/332047.png"},
+      {"name": "Kobbie Mainoo", "sportmonksId": 37540234, "photo": "https://cdn.sportmonks.com/images/soccer/players/10/37540234.png"},
+      {"name": "Adam Wharton", "sportmonksId": 37350704, "photo": "https://cdn.sportmonks.com/images/soccer/players/16/37350704.png"},
+      {"name": "Cole Palmer", "sportmonksId": 28912747, "photo": "https://cdn.sportmonks.com/images/soccer/players/11/28912747.png"},
+      {"name": "Morgan Rogers", "sportmonksId": 4592198, "photo": "https://cdn.sportmonks.com/images/soccer/players/6/4592198.png"},
+      {"name": "Morgan Gibbs-White", "sportmonksId": 7926, "photo": "https://cdn.sportmonks.com/images/soccer/players/22/7926.png"},
+      {"name": "Phil Foden", "sportmonksId": 336133, "photo": "https://cdn.sportmonks.com/images/soccer/players/5/336133.png"},
+      {"name": "Eberechi Eze", "sportmonksId": 7643, "photo": "https://cdn.sportmonks.com/images/soccer/players/27/7643.png"},
+      {"name": "Alex Scott", "sportmonksId": 37550443, "photo": "https://cdn.sportmonks.com/images/soccer/players/11/37550443.png"},
+      {"name": "Myles Lewis-Skelly", "sportmonksId": 37568815, "photo": "https://cdn.sportmonks.com/images/soccer/players/15/37568815.png"},
+      {"name": "James Garner", "sportmonksId": 4536524, "photo": "https://cdn.sportmonks.com/images/soccer/players/12/4536524.png"},
+      {"name": "Curtis Jones", "sportmonksId": 4545513, "photo": "https://cdn.sportmonks.com/images/soccer/players/9/4545513.png"},
+      {"name": "Kiernan Dewsbury-Hall", "sportmonksId": 540613, "photo": "https://cdn.sportmonks.com/images/soccer/players/5/540613.png"},
+      {"name": "Lewis Miley", "sportmonksId": 37581796, "photo": "https://cdn.sportmonks.com/images/soccer/players/4/37581796.png"}
+    ],
+    "att": [
+      {"name": "Harry Kane", "sportmonksId": 997, "photo": "https://cdn.sportmonks.com/images/soccer/players/5/997.png"},
+      {"name": "Bukayo Saka", "sportmonksId": 16827155, "photo": "https://cdn.sportmonks.com/images/soccer/players/19/16827155.png"},
+      {"name": "Anthony Gordon", "sportmonksId": 9611543, "photo": "https://cdn.sportmonks.com/images/soccer/players/23/9611543.png"},
+      {"name": "Noni Madueke", "sportmonksId": 25217662, "photo": "https://cdn.sportmonks.com/images/soccer/players/30/25217662.png"},
+      {"name": "Marcus Rashford", "sportmonksId": 1878, "photo": "https://cdn.sportmonks.com/images/soccer/players/22/1878.png"},
+      {"name": "Harvey Barnes", "sportmonksId": 10601, "photo": "https://cdn.sportmonks.com/images/soccer/players/9/10601.png"},
+      {"name": "Rio Ngumoha", "sportmonksId": 37721333, "photo": "https://cdn.sportmonks.com/images/soccer/players/21/37721333.png"},
+      {"name": "Dominic Solanke", "sportmonksId": 4203, "photo": "https://cdn.sportmonks.com/images/soccer/players/11/4203.png"},
+      {"name": "Ollie Watkins", "sportmonksId": 12145, "photo": "https://cdn.sportmonks.com/images/soccer/players/17/12145.png"},
+      {"name": "Dominic Calvert-Lewin", "sportmonksId": 5141, "photo": "https://cdn.sportmonks.com/images/soccer/players/21/5141.png"},
+      {"name": "Jack Grealish", "sportmonksId": 1116, "photo": "https://cdn.sportmonks.com/images/soccer/players/28/1116.png"},
+      {"name": "Ivan Toney", "sportmonksId": 4341, "photo": "https://cdn.sportmonks.com/images/soccer/players/21/4341.png"}
+    ]
+  }
+}

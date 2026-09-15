@@ -1,0 +1,22 @@
+{
+  "name": "Um Dois Esportes",
+  "locale": "pt-BR",
+  "maxWidth": 920,
+  "gridCols": "repeat(auto-fill,minmax(220px,1fr))",
+  "vars": {
+    "--heading": "#1a1a1a",
+    "--tab-active-bg": "#f2c14b",
+    "--tab-active-border": "#d9a83a",
+    "--tab-active-text": "#1a1a1a"
+  },
+  "text": {
+    "pt-BR": {
+      "heading": "Você é o técnico: convoque seus {total} jogadores",
+      "introTitle": "⚠️ Eleja seus convocados",
+      "introLead": "Defina {total} atletas para o seu elenco para {event}",
+      "introRules": "São {rules}.",
+      "introTabs": "Selecione nas abas de posições para navegar entre {tabs}.",
+      "introShare": "Verifique as escolhas, confira a lista no campinho e compartilhe."
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "site": "afrikfoot",
+  "country": {
+    "name": "Maroc",
+    "of": "du Maroc",
+    "adj": "marocaine",
+    "demonym": "marocains"
+  },
+  "event": {
+    "long": "le rassemblement d'octobre 2026",
+    "short": "Octobre 2026"
+  },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Yassine Bounou", "photo": "https://cdn.sportmonks.com/images/soccer/players/31/186591.png"},
+      "El Mehdi Benabid",
+      "El Mehdi Al Harrar",
+      "Munir El Kajoui"
+    ],
+    "def": [
+      "Nayef Aguerd",
+      {"name": "Issa Diop", "photo": "https://cdn.sportmonks.com/images/soccer/players/31/96799.png"},
+      {"name": "Chadi Riad", "photo": "https://cdn.sportmonks.com/images/soccer/players/17/37537937.png"},
+      "Abdelhamid Aït Boudlal",
+      "Adam Masina",
+      "Jawad El Yamiq",
+      {"name": "Redouane Halhal", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/37582883.png"},
+      "Ismaël Baouf",
+      {"name": "Achraf Hakimi", "photo": "https://cdn.sportmonks.com/images/soccer/players/28/187260.png"},
+      {"name": "Zakaria El Ouahdi", "photo": "https://cdn.sportmonks.com/images/soccer/players/12/37540780.png"},
+      "Omar El Hilali",
+      "Mohamed Chibi",
+      {"name": "Noussair Mazraoui", "photo": "https://cdn.sportmonks.com/images/soccer/players/12/28716.png"},
+      {"name": "Anass Salah-Eddine", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/23661347.png"},
+      "Souffian El Karouani",
+      {"name": "Youssef Belammari", "photo": "https://cdn.sportmonks.com/images/soccer/players/6/37317062.png"}
+    ],
+    "mid": [
+      {"name": "Neil El Aynaoui", "photo": "https://cdn.sportmonks.com/images/soccer/players/20/21803060.png"},
+      {"name": "Azzedine Ounahi", "photo": "https://cdn.sportmonks.com/images/soccer/players/25/21803033.png"},
+      {"name": "Ismael Saibari", "photo": "https://cdn.sportmonks.com/images/soccer/players/26/37317434.png"},
+      {"name": "Bilal El Khannouss", "photo": "https://cdn.sportmonks.com/images/soccer/players/5/37559109.png"},
+      {"name": "Samir El Mourabet", "photo": "https://cdn.sportmonks.com/images/soccer/players/31/37692095.png"},
+      "Oussama Targhalline",
+      {"name": "Sofyan Amrabat", "photo": "https://cdn.sportmonks.com/images/soccer/players/17/25489.png"},
+      {"name": "Ayyoub Bouaddi", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/37717176.png"},
+      "Mohamed Rabie Hrimat",
+      "Imran Louza"
+    ],
+    "att": [
+      {"name": "Brahim Diaz", "photo": "https://cdn.sportmonks.com/images/soccer/players/22/340342.png"},
+      {"name": "Ayoub El Kaabi", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/10631219.png"},
+      "Ez Abde",
+      {"name": "Soufiane Rahimi", "photo": "https://cdn.sportmonks.com/images/soccer/players/17/20316497.png"},
+      "Yassine Gessime",
+      "Youssef En-Nesyri",
+      "Ilias Akhomach",
+      "Rayane Bounida",
+      "Hakim Ziyech",
+      "Sofiane Boufal",
+      "Yassir Zabiri",
+      {"name": "Chemsdine Talbi", "photo": "https://cdn.sportmonks.com/images/soccer/players/10/37590634.png"},
+      "Amine Adli",
+      "Eliesse Ben Seghir",
+      "Othmane Maamma",
+      "Yanis Begraoui",
+      "Sofiane Diop"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "pos": { "gk": "GOL", "def": "DEF", "mid": "MEI", "att": "ATA" },
+  "posFull": { "gk": "Goleiros", "def": "Defensores", "mid": "Meio-campistas", "att": "Atacantes" },
+  "units": {
+    "gk": ["goleiro", "goleiros"],
+    "def": ["defensor", "defensores"],
+    "mid": ["meio-campista", "meio-campistas"],
+    "att": ["atacante", "atacantes"]
+  },
+  "rangeExact": "{n} {unit}",
+  "rangeBetween": "de {min} a {max} {unit}",
+  "listSep": ", ",
+  "listLast": " e ",
+  "t": {
+    "pageTitle": "Monte a seleção {countryOf} para {event} | {site}",
+    "metaDescription": "Escolha os {total} jogadores da seleção {countryOf} para {event}. Selecione {rules} e compartilhe a sua lista.",
+    "heading": "⚽ Minha seleção {countryOf} · {eventShort}",
+    "introTitle": "⚠️ Como montar sua lista",
+    "introLead": "Escolha os {total} jogadores que você convocaria para {event}",
+    "introRules": "Você pode escolher: {rules} (total = {total}).",
+    "introTabs": "Clique nas abas das posições para navegar entre {tabs}.",
+    "introShare": "Valide sua lista, confira-a no campo e compartilhe.",
+    "selected": "selecionados",
+    "validateBtn": "Validar minha seleção",
+    "validateBtnReady": "Ver minha seleção ✓",
+    "hintIncomplete": "Escolha os jogadores restantes para continuar",
+    "hintMin": "{pos}: mínimo de {min} obrigatório (atualmente {n})",
+    "hintRemainingOne": "Falta 1 jogador",
+    "hintRemainingMany": "Faltam {n} jogadores",
+    "reset": "↺ Reiniciar",
+    "edit": "← Editar minha seleção",
+    "pitchTitle": "Minha seleção<br>{country} · {eventShort}",
+    "download": "📥 Baixar imagem",
+    "shareX": "𝕏 Compartilhar",
+    "shareText": "Aqui está minha seleção {countryOf} para {event}. O que você acha? Monte a sua aqui:",
+    "instagramAlert": "Imagem baixada! Compartilhe direto no Instagram.",
+    "errorFileProto": "A captura local está bloqueada na abertura direta (file://). Inicie um servidor local (ex.: python3 -m http.server) ou teste no WordPress.",
+    "errorPrefix": "Erro: ",
+    "downloadFilename": "minha-selecao-{slug}-{eventSlug}.png"
+  }
+}

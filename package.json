@@ -1,0 +1,8 @@
+{
+  "name": "squad-selector",
+  "private": true,
+  "description": "Widgets 'compose ta sélection' par pays, site et langue (successeur de wc26-squad-pickup)",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

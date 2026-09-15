@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Compose la sélection marocaine pour le rassemblement d&#39;octobre 2026 | Afrik-Foot</title>
+<meta name="description" content="Choisis les 26 joueurs de la sélection marocaine pour le rassemblement d&#39;octobre 2026. Sélectionne 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants, puis partage ta sélection.">
+<!-- Squad Selector · morocco-afrikfoot · généré le 2026-09-15 par build.mjs. Ne pas modifier ce fichier : éditer selectors/morocco-afrikfoot.json puis relancer le build. -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<style>
+/* ── Reset & Variables (valeurs par défaut = thème clair) ───────── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;--card:#f5f5f5;--card-hover:#eaeaea;--card-selected:#fde8e8;
+  --accent:#e30613;--accent-dark:#b8050f;--accent-text:var(--accent);
+  --text:#1a1a1a;--text-muted:#777;--heading:var(--accent);--border:#ccc;
+  --tab-active-bg:var(--card-selected);--tab-active-border:var(--accent);--tab-active-text:var(--accent-text);
+  --done-bg:#d4edda;--done-text:#1e7e34;
+  --validate:#1e7e34;--validate-hover:#166528;--validate-disabled:#ccc;
+  --initials-ring:transparent;--photo-bg:#dfe3e8;
+  --pitch-green:#2d6a30;--pitch-dark:#1e5420;--pitch-line:rgba(255,255,255,.35);
+  --pos-gk:#1e88e5;--pos-def:#1a1a1a;--pos-mid:#f9a825;--pos-att:#c62828;
+  --radius:10px;--widget-max:720px;--grid-cols:repeat(2,1fr);
+}
+/* ── Thème du site ──────────────────────────────────────────────── */
+:root{--widget-max:800px;--grid-cols:repeat(2,1fr);--bg:#1a1a1a;--card:#2a2a2a;--card-hover:#353535;--card-selected:#2a361a;--accent:#6d8d3f;--accent-dark:#5a7333;--accent-text:#94b855;--text:#f5f5f5;--text-muted:#a8a8a8;--heading:#ffffff;--border:#555555;--pos-def:#2e7d32;--done-bg:#1e3a23;--done-text:#5ec46f;--initials-ring:rgba(255,255,255,.15);--photo-bg:#3a3a3a}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.4}
+
+/* ── Widget Container ───────────────────────────────────────────── */
+#squad-widget{width:100%;max-width:var(--widget-max);margin:0 auto;padding:20px}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.widget-header{text-align:center;margin-bottom:14px}
+.widget-header h2{font-size:1.5rem;color:var(--heading);letter-spacing:.5px}
+.intro{font-size:.85rem;color:var(--text);margin-bottom:18px;line-height:1.5;max-width:600px;margin-left:auto;margin-right:auto;background:var(--card);border-left:3px solid var(--accent);border-radius:var(--radius);padding:14px 16px}
+.intro-title{font-weight:700;color:var(--accent-text);margin-bottom:6px;font-size:.9rem;letter-spacing:.2px}
+.intro-lead{font-weight:600;margin-bottom:8px}
+.intro-steps{padding-left:20px;margin:0}
+.intro-steps li{margin-bottom:4px}
+.intro-steps li:last-child{margin-bottom:0}
+
+/* ── Progress ───────────────────────────────────────────────────── */
+.progress{display:flex;align-items:center;gap:14px;margin-bottom:18px;font-size:1.05rem;color:var(--text-muted)}
+.progress-bar{flex:1;height:14px;background:var(--card);border-radius:7px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-dark));transition:width .3s}
+.progress-text{font-weight:700;color:var(--text);white-space:nowrap;font-size:1.05rem}
+.progress-text .done{color:var(--accent-text)}
+
+/* ── Screens ────────────────────────────────────────────────────── */
+.screen{display:none}
+.screen.active{display:block}
+
+/* ── Main 2-column grid (selection) ─────────────────────────────── */
+.main-grid{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start}
+
+/* ── Validate / Edit buttons ────────────────────────────────────── */
+.validate-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:18px;padding:14px;background:var(--validate);color:#fff;border:none;border-radius:var(--radius);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;letter-spacing:.3px}
+.validate-btn:not(:disabled):hover{background:var(--validate-hover);transform:translateY(-1px)}
+.validate-btn:disabled{background:var(--validate-disabled);color:#fff;cursor:not-allowed}
+.validate-hint{display:block;text-align:center;font-size:.72rem;color:var(--text-muted);font-style:italic;margin-top:8px}
+.validate-hint.hidden{display:none}
+
+.edit-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:transparent;color:var(--text-muted);border:1px solid var(--border);border-radius:var(--radius);font-size:.8rem;cursor:pointer;transition:all .2s;font-family:inherit;margin-bottom:14px}
+.edit-btn:hover{border-color:var(--accent-text);color:var(--accent-text)}
+
+/* ── Pitch screen (centered) ────────────────────────────────────── */
+.pitch-wrap{max-width:380px;margin:0 auto}
+
+/* ── Vertical Tabs (col 1) ──────────────────────────────────────── */
+.tabs-col{display:flex;flex-direction:column;gap:6px}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:14px 6px;background:var(--card);border:2px solid transparent;border-radius:var(--radius);cursor:pointer;transition:all .2s;font-family:inherit;color:var(--text);text-align:center}
+.tab:hover:not(.active){background:var(--card-hover)}
+.tab .tab-label{font-size:.85rem;font-weight:700;letter-spacing:.5px}
+.tab .tab-count{font-size:.7rem;color:var(--text-muted);font-weight:600}
+.tab.active{background:var(--tab-active-bg);border-color:var(--tab-active-border);color:var(--tab-active-text)}
+.tab.active .tab-count{color:var(--tab-active-text)}
+.tab.done{background:var(--done-bg);border-color:var(--done-text);color:var(--done-text)}
+.tab.done .tab-count{color:var(--done-text)}
+.tab[data-pos]::before{content:"";display:block;width:18px;height:4px;border-radius:2px;margin-bottom:6px}
+.tab[data-pos="gk"]::before{background:var(--pos-gk)}
+.tab[data-pos="def"]::before{background:var(--pos-def)}
+.tab[data-pos="mid"]::before{background:var(--pos-mid)}
+.tab[data-pos="att"]::before{background:var(--pos-att)}
+
+/* ── Player Cards Grid (col 2) ──────────────────────────────────── */
+.players-col{min-width:0}
+.player-grid{display:none;grid-template-columns:var(--grid-cols);gap:8px}
+.player-grid.active{display:grid}
+.player-card{display:flex;align-items:center;gap:8px;background:var(--card);border:2px solid transparent;border-radius:var(--radius);padding:8px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;min-width:0}
+.player-card:hover:not(.disabled){border-color:var(--accent);background:var(--card-hover)}
+.player-card.selected{border-color:var(--accent);background:var(--card-selected)}
+.player-card.disabled{opacity:.35;pointer-events:none}
+.player-card .initials{width:40px;height:40px;border-radius:50%;border:2px solid var(--initials-ring);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.5px}
+.player-card .info{flex:1;min-width:0;overflow:hidden}
+.player-card .name{font-size:.78rem;font-weight:600;line-height:1.25}
+.player-card .name span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player-card .name .first{font-weight:400;color:var(--text-muted);font-size:.7rem}
+.player-card .name .club{font-weight:400;color:var(--text-muted);font-size:.64rem}
+.player-card .check{position:absolute;top:5px;right:5px;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;display:none;align-items:center;justify-content:center;font-size:.65rem;font-weight:700}
+.player-card.selected .check{display:flex}
+.photo{background-color:var(--photo-bg);background-size:cover;background-position:center top;background-repeat:no-repeat}
+
+/* ── Pitch ──────────────────────────────────────────────────────── */
+.pitch-container{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.pitch-title{text-align:center;font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;line-height:1.4}
+.pitch{position:relative;width:100%;padding-bottom:175%;background:linear-gradient(180deg,var(--pitch-dark) 0%,var(--pitch-green) 22%,var(--pitch-green) 78%,var(--pitch-dark) 100%);border-radius:8px;overflow:hidden;border:2px solid var(--pitch-line)}
+
+/* Pitch lines */
+.pitch-lines{position:absolute;inset:0}
+.pitch-lines .halfway{position:absolute;top:50%;left:5%;right:5%;height:0;border-top:2px solid var(--pitch-line)}
+.pitch-lines .center-circle{position:absolute;top:50%;left:50%;width:22%;padding-bottom:22%;border-radius:50%;border:2px solid var(--pitch-line);transform:translate(-50%,-50%)}
+.pitch-lines .center-dot{position:absolute;top:50%;left:50%;width:5px;height:5px;border-radius:50%;background:var(--pitch-line);transform:translate(-50%,-50%)}
+.pitch-lines .box-top{position:absolute;top:0;left:22%;right:22%;height:14%;border:2px solid var(--pitch-line);border-top:none}
+.pitch-lines .box-bottom{position:absolute;bottom:0;left:22%;right:22%;height:14%;border:2px solid var(--pitch-line);border-bottom:none}
+
+/* Pitch zones (one row per position) */
+.pitch-zones{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:5% 4%}
+.pitch-zone{display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:10px 8px;min-height:0;flex:1}
+.pitch-zone.gk{flex:0 0 auto}
+
+/* Pitch dots */
+.pitch-dot{display:flex;flex-direction:column;align-items:center;width:52px;transition:transform .2s}
+.pitch-dot .dot-circle{width:42px;height:42px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.5px;box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.pitch-dot .dot-name{font-size:.7rem;font-weight:600;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.9);margin-top:3px;white-space:nowrap;max-width:64px;overflow:hidden;text-overflow:ellipsis}
+
+/* ── Share Section ──────────────────────────────────────────────── */
+.share-section{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.share-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.share-btn{display:flex;align-items:center;justify-content:center;gap:5px;padding:11px 6px;border:none;border-radius:var(--radius);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;color:#fff;font-family:inherit}
+.share-btn:hover{opacity:.9;transform:translateY(-1px)}
+.share-btn.x{background:#000}
+.share-btn.fb{background:#1877f2}
+.share-btn.wa{background:#25d366}
+.share-btn.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.share-btn.dl{background:var(--accent);width:100%;padding:13px;font-size:.9rem}
+
+/* ── Reset Button ───────────────────────────────────────────────── */
+.reset-btn{display:block;width:100%;margin-top:14px;padding:9px;background:transparent;color:var(--text-muted);border:1px solid var(--border);border-radius:var(--radius);font-size:.78rem;cursor:pointer;transition:all .2s;font-family:inherit}
+.reset-btn:hover{border-color:var(--accent-text);color:var(--accent-text)}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media(max-width:640px){
+  #squad-widget{padding:12px}
+  .main-grid{grid-template-columns:1fr;gap:14px}
+  .tabs-col{flex-direction:row;overflow-x:auto;padding-bottom:4px}
+  .tab{flex:1;flex-direction:row;padding:8px 6px;gap:6px;min-width:80px}
+  .tab[data-pos]::before{display:none}
+  .tab .tab-label{font-size:.78rem}
+  .player-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .player-card{padding:7px;gap:7px}
+  .player-card .initials{width:36px;height:36px;font-size:.72rem}
+  .player-card .name{font-size:.72rem}
+  .widget-header h2{font-size:1.25rem}
+  .pitch-dot{width:46px}
+  .pitch-dot .dot-circle{width:38px;height:38px;font-size:.78rem}
+  .pitch-dot .dot-name{font-size:.65rem}
+  .share-buttons{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:400px){
+  #squad-widget{padding:8px}
+  .player-card{padding:6px;gap:6px}
+  .player-card .initials{width:32px;height:32px;font-size:.68rem}
+  .player-card .name{font-size:.68rem}
+  .player-card .name .first{font-size:.62rem}
+}
+</style>
+</head>
+<body>
+
+<div id="squad-widget">
+
+  <div class="widget-header">
+    <h2>⚽ Ma sélection du Maroc · Octobre 2026</h2>
+  </div>
+
+  <!-- ═══ SCREEN 1: Selection ═══ -->
+  <div class="screen active" id="screen-select">
+    <div class="intro">
+      <div class="intro-title">⚠️ Mode d&#39;emploi</div>
+      <p class="intro-lead">Choisis les 26 joueurs marocains que tu convoquerais pour le rassemblement d&#39;octobre 2026</p>
+      <ol class="intro-steps">
+        <li>Tu peux choisir : 3 gardiens, 7 à 9 défenseurs, 6 à 9 milieux et 7 à 9 attaquants (total = 26).</li>
+        <li>Clique sur les onglets des positions pour naviguer entre GB, DÉF, MIL et ATT.</li>
+        <li>Valide ta liste, vérifie-la sur le terrain et partage-la.</li>
+      </ol>
+    </div>
+
+    <div class="progress">
+      <div class="progress-text"><span class="done" id="totalSelected">0</span> / <span id="totalRequired">26</span> sélectionnés</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="main-grid">
+      <div class="tabs-col" id="tabsCol"></div>
+      <div class="players-col">
+        <div class="player-grid active" id="grid-gk"></div>
+        <div class="player-grid" id="grid-def"></div>
+        <div class="player-grid" id="grid-mid"></div>
+        <div class="player-grid" id="grid-att"></div>
+      </div>
+    </div>
+
+    <button class="validate-btn" id="btnValidate" onclick="validateSelection()" disabled>
+      <span id="btnValidateLabel">Valider ma sélection</span>
+    </button>
+    <div class="validate-hint" id="validateHint">Choisis les joueurs restants pour continuer</div>
+
+    <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
+  </div>
+
+  <!-- ═══ SCREEN 2: Pitch + Share ═══ -->
+  <div class="screen" id="screen-pitch">
+    <button class="edit-btn" onclick="editSelection()">← Modifier ma sélection</button>
+
+    <div class="pitch-wrap">
+      <div class="pitch-container" id="pitchContainer">
+        <div class="pitch-title">Ma sélection<br>Maroc · Octobre 2026</div>
+        <div class="pitch" id="pitch">
+          <div class="pitch-lines">
+            <div class="halfway"></div>
+            <div class="center-circle"></div>
+            <div class="center-dot"></div>
+            <div class="box-top"></div>
+            <div class="box-bottom"></div>
+          </div>
+          <div class="pitch-zones" id="pitchZones"></div>
+        </div>
+      </div>
+
+      <div class="share-section">
+        <button class="share-btn dl" onclick="downloadImage()">📥 Télécharger l&#39;image</button>
+        <div class="share-buttons">
+          <button class="share-btn x"  onclick="shareOn('x')">𝕏 Partager</button>
+          <button class="share-btn fb" onclick="shareOn('facebook')">Facebook</button>
+          <button class="share-btn wa" onclick="shareOn('whatsapp')">WhatsApp</button>
+          <button class="share-btn ig" onclick="shareOn('instagram')">Instagram</button>
+        </div>
+      </div>
+
+      <button class="reset-btn" onclick="resetAll()">↺ Réinitialiser</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* Config injectée au build (selectors/morocco-afrikfoot.json + sites/ + locales/) */
+const CONFIG = {"id":"morocco-afrikfoot","rules":{"total":26,"positions":{"gk":{"min":3,"max":3},"def":{"min":7,"max":9},"mid":{"min":6,"max":9},"att":{"min":7,"max":9}}},"players":{"gk":[{"id":1,"name":"Yassine Bounou","photo":"https://cdn.sportmonks.com/images/soccer/players/31/186591.png"},{"id":2,"name":"El Mehdi Benabid"},{"id":3,"name":"El Mehdi Al Harrar"},{"id":4,"name":"Munir El Kajoui"}],"def":[{"id":101,"name":"Nayef Aguerd"},{"id":102,"name":"Issa Diop","photo":"https://cdn.sportmonks.com/images/soccer/players/31/96799.png"},{"id":103,"name":"Chadi Riad","photo":"https://cdn.sportmonks.com/images/soccer/players/17/37537937.png"},{"id":104,"name":"Abdelhamid Aït Boudlal"},{"id":105,"name":"Adam Masina"},{"id":106,"name":"Jawad El Yamiq"},{"id":107,"name":"Redouane Halhal","photo":"https://cdn.sportmonks.com/images/soccer/players/3/37582883.png"},{"id":108,"name":"Ismaël Baouf"},{"id":109,"name":"Achraf Hakimi","photo":"https://cdn.sportmonks.com/images/soccer/players/28/187260.png"},{"id":110,"name":"Zakaria El Ouahdi","photo":"https://cdn.sportmonks.com/images/soccer/players/12/37540780.png"},{"id":111,"name":"Omar El Hilali"},{"id":112,"name":"Mohamed Chibi"},{"id":113,"name":"Noussair Mazraoui","photo":"https://cdn.sportmonks.com/images/soccer/players/12/28716.png"},{"id":114,"name":"Anass Salah-Eddine","photo":"https://cdn.sportmonks.com/images/soccer/players/3/23661347.png"},{"id":115,"name":"Souffian El Karouani"},{"id":116,"name":"Youssef Belammari","photo":"https://cdn.sportmonks.com/images/soccer/players/6/37317062.png"}],"mid":[{"id":201,"name":"Neil El Aynaoui","photo":"https://cdn.sportmonks.com/images/soccer/players/20/21803060.png"},{"id":202,"name":"Azzedine Ounahi","photo":"https://cdn.sportmonks.com/images/soccer/players/25/21803033.png"},{"id":203,"name":"Ismael Saibari","photo":"https://cdn.sportmonks.com/images/soccer/players/26/37317434.png"},{"id":204,"name":"Bilal El Khannouss","photo":"https://cdn.sportmonks.com/images/soccer/players/5/37559109.png"},{"id":205,"name":"Samir El Mourabet","photo":"https://cdn.sportmonks.com/images/soccer/players/31/37692095.png"},{"id":206,"name":"Oussama Targhalline"},{"id":207,"name":"Sofyan Amrabat","photo":"https://cdn.sportmonks.com/images/soccer/players/17/25489.png"},{"id":208,"name":"Ayyoub Bouaddi","photo":"https://cdn.sportmonks.com/images/soccer/players/24/37717176.png"},{"id":209,"name":"Mohamed Rabie Hrimat"},{"id":210,"name":"Imran Louza"}],"att":[{"id":301,"name":"Brahim Diaz","photo":"https://cdn.sportmonks.com/images/soccer/players/22/340342.png"},{"id":302,"name":"Ayoub El Kaabi","photo":"https://cdn.sportmonks.com/images/soccer/players/19/10631219.png"},{"id":303,"name":"Ez Abde"},{"id":304,"name":"Soufiane Rahimi","photo":"https://cdn.sportmonks.com/images/soccer/players/17/20316497.png"},{"id":305,"name":"Yassine Gessime"},{"id":306,"name":"Youssef En-Nesyri"},{"id":307,"name":"Ilias Akhomach"},{"id":308,"name":"Rayane Bounida"},{"id":309,"name":"Hakim Ziyech"},{"id":310,"name":"Sofiane Boufal"},{"id":311,"name":"Yassir Zabiri"},{"id":312,"name":"Chemsdine Talbi","photo":"https://cdn.sportmonks.com/images/soccer/players/10/37590634.png"},{"id":313,"name":"Amine Adli"},{"id":314,"name":"Eliesse Ben Seghir"},{"id":315,"name":"Othmane Maamma"},{"id":316,"name":"Yanis Begraoui"},{"id":317,"name":"Sofiane Diop"}]},"pos":{"gk":"GB","def":"DÉF","mid":"MIL","att":"ATT"},"posFull":{"gk":"Gardiens","def":"Défenseurs","mid":"Milieux","att":"Attaquants"},"t":{"validateBtn":"Valider ma sélection","validateBtnReady":"Voir ma sélection ✓","hintIncomplete":"Choisis les joueurs restants pour continuer","hintMin":"{pos} : minimum {min} requis (actuellement {n})","hintRemainingOne":"Encore 1 joueur à choisir","hintRemainingMany":"Encore {n} joueurs à choisir","shareText":"Voici ma sélection marocaine pour le rassemblement d'octobre 2026. Qu'en penses-tu ? Fais la tienne ici :","instagramAlert":"Image téléchargée ! Partage-la directement sur Instagram.","errorFileProto":"La capture locale est bloquée en ouverture directe (file://). Lance un serveur local (ex : python3 -m http.server) ou teste sur WordPress.","errorPrefix":"Erreur : ","downloadFilename":"ma-selection-maroc-octobre-2026.png"}};
+
+const T = CONFIG.t;
+const SQUAD_TOTAL = CONFIG.rules.total;
+const SQUAD_RULES = CONFIG.rules.positions;
+const PLAYERS = CONFIG.players;
+
+const POSITIONS = ["gk","def","mid","att"];
+const POS_COLOR = { gk:"var(--pos-gk)", def:"var(--pos-def)", mid:"var(--pos-mid)", att:"var(--pos-att)" };
+const POS_LABEL = CONFIG.pos;
+const POS_LABEL_FULL = CONFIG.posFull;
+
+const state = {
+  gk: [], def: [], mid: [], att: [],
+  currentTab: "gk"
+};
+
+/* ── Helpers ─────────────────────────────────────────────────────── */
+function fmt(str, vars) {
+  return str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+}
+
+function gridEl(pos) {
+  return document.getElementById("grid-" + pos);
+}
+
+function totalSelected() {
+  return POSITIONS.reduce((s, p) => s + state[p].length, 0);
+}
+
+/* ── Range helpers ───────────────────────────────────────────────── */
+function getEffectiveMax(pos) {
+  let reservedForOthers = 0;
+  POSITIONS.forEach(q => {
+    if (q === pos) return;
+    reservedForOthers += Math.max(state[q].length, SQUAD_RULES[q].min);
+  });
+  return Math.min(SQUAD_RULES[pos].max, SQUAD_TOTAL - reservedForOthers);
+}
+
+function isPositionValid(pos) {
+  const r = SQUAD_RULES[pos];
+  const n = state[pos].length;
+  return n >= r.min && n <= r.max;
+}
+
+function isSquadValid() {
+  return totalSelected() === SQUAD_TOTAL && POSITIONS.every(isPositionValid);
+}
+
+/* ── Name helpers ────────────────────────────────────────────────── */
+function getInitials(name) {
+  const parts = name.replace(/[-']/g, " ").trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function getLastName(name) {
+  const parts = name.trim().split(/\s+/);
+  return parts[parts.length - 1];
+}
+
+function getFirstName(name) {
+  const parts = name.trim().split(/\s+/);
+  parts.pop();
+  return parts.join(" ");
+}
+
+/* Photo si disponible, sinon pastille couleur avec initiales */
+function avatar(player, pos, cls) {
+  if (player.photo) {
+    return `<div class="${cls} photo" style="background-image:url('${esc(player.photo)}')"></div>`;
+  }
+  return `<div class="${cls}" style="background-color:${POS_COLOR[pos]}">${esc(getInitials(player.name))}</div>`;
+}
+
+/* Une photo qui ne charge pas repasse en initiales */
+function checkPhotos() {
+  POSITIONS.forEach(pos => PLAYERS[pos].forEach(player => {
+    if (!player.photo) return;
+    const img = new Image();
+    img.onerror = () => {
+      player.photo = null;
+      renderPlayerGrid(pos);
+      renderPitch();
+    };
+    img.src = player.photo;
+  }));
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   INIT
+   ═══════════════════════════════════════════════════════════════════ */
+function init() {
+  renderTabs();
+  POSITIONS.forEach(pos => renderPlayerGrid(pos));
+  renderPitch();
+  updateProgress();
+  checkValidate();
+  checkPhotos();
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────── */
+function renderTabs() {
+  const el = document.getElementById("tabsCol");
+  el.innerHTML = POSITIONS.map(pos => {
+    const r = SQUAD_RULES[pos];
+    const count = state[pos].length;
+    const cls = pos === state.currentTab ? "active" : (isPositionValid(pos) ? "done" : "");
+    const countDisplay = (r.min === r.max) ? `${count}/${r.max}` : `${count}/${r.min}-${r.max}`;
+    return `<button class="tab ${cls}" data-pos="${pos}" onclick="goToTab('${pos}')">
+      <span class="tab-label">${esc(POS_LABEL[pos])}</span>
+      <span class="tab-count">${countDisplay}</span>
+    </button>`;
+  }).join("");
+}
+
+function goToTab(pos) {
+  state.currentTab = pos;
+  POSITIONS.forEach(p => gridEl(p).classList.toggle("active", p === pos));
+  renderTabs();
+}
+
+/* ── Player Grids ────────────────────────────────────────────────── */
+function renderPlayerGrid(pos) {
+  gridEl(pos).innerHTML = PLAYERS[pos].map(p => {
+    const firstName = getFirstName(p.name);
+    const lastName = getLastName(p.name);
+    return `<div class="player-card" data-id="${p.id}" onclick="selectPlayer('${pos}',${p.id})">
+      ${avatar(p, pos, "initials")}
+      <div class="info"><div class="name">${firstName ? `<span class="first">${esc(firstName)}</span>` : ""}<span>${esc(lastName)}</span>${p.club ? `<span class="club">${esc(p.club)}</span>` : ""}</div></div>
+      <div class="check">✓</div>
+    </div>`;
+  }).join("");
+  updateGridSelection(pos);
+}
+
+function selectPlayer(pos, id) {
+  const player = PLAYERS[pos].find(p => p.id === id);
+  if (!player) return;
+
+  const idx = state[pos].findIndex(p => p.id === id);
+  if (idx >= 0) {
+    state[pos].splice(idx, 1);
+  } else {
+    if (state[pos].length >= getEffectiveMax(pos)) return;
+    state[pos].push(player);
+  }
+
+  // Effective max of every position depends on others — refresh them all
+  POSITIONS.forEach(p => updateGridSelection(p));
+  renderTabs();
+  renderPitch();
+  updateProgress();
+  checkValidate();
+}
+
+function updateGridSelection(pos) {
+  const full = state[pos].length >= getEffectiveMax(pos);
+  gridEl(pos).querySelectorAll(".player-card").forEach(card => {
+    const id = parseInt(card.dataset.id, 10);
+    const isSelected = state[pos].some(p => p.id === id);
+    card.classList.toggle("selected", isSelected);
+    card.classList.toggle("disabled", full && !isSelected);
+  });
+}
+
+/* ── Pitch rendering ─────────────────────────────────────────────── */
+function renderPitch() {
+  // 4 zones from top (ATT) to bottom (GK)
+  const order = ["att", "mid", "def", "gk"];
+  document.getElementById("pitchZones").innerHTML = order.map(renderZone).join("");
+}
+
+function renderZone(pos) {
+  const dots = state[pos].map(player => {
+    const label = player.displayName || getLastName(player.name);
+    return `<div class="pitch-dot" data-pos="${pos}">
+      ${avatar(player, pos, "dot-circle")}
+      <div class="dot-name">${esc(label)}</div>
+    </div>`;
+  });
+  return `<div class="pitch-zone ${pos}">${dots.join("")}</div>`;
+}
+
+/* ── Progress + validation ───────────────────────────────────────── */
+function updateProgress() {
+  const total = totalSelected();
+  document.getElementById("totalSelected").textContent = total;
+  document.getElementById("totalRequired").textContent = SQUAD_TOTAL;
+  document.getElementById("progressFill").style.width = (total / SQUAD_TOTAL * 100) + "%";
+}
+
+function checkValidate() {
+  const ready = isSquadValid();
+  document.getElementById("btnValidate").disabled = !ready;
+  document.getElementById("btnValidateLabel").textContent = ready ? T.validateBtnReady : T.validateBtn;
+
+  const hintEl = document.getElementById("validateHint");
+  hintEl.classList.toggle("hidden", ready);
+  if (ready) return;
+
+  const total = totalSelected();
+  const under = POSITIONS.find(p => state[p].length < SQUAD_RULES[p].min);
+  if (total === 0) {
+    hintEl.textContent = T.hintIncomplete;
+  } else if (under) {
+    hintEl.textContent = fmt(T.hintMin, { pos: POS_LABEL_FULL[under], min: SQUAD_RULES[under].min, n: state[under].length });
+  } else if (total < SQUAD_TOTAL) {
+    const remaining = SQUAD_TOTAL - total;
+    hintEl.textContent = remaining === 1 ? T.hintRemainingOne : fmt(T.hintRemainingMany, { n: remaining });
+  } else {
+    hintEl.textContent = T.hintIncomplete;
+  }
+}
+
+/* ── Screen navigation ───────────────────────────────────────────── */
+function showScreen(name) {
+  document.getElementById("screen-select").classList.toggle("active", name === "select");
+  document.getElementById("screen-pitch").classList.toggle("active", name === "pitch");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function validateSelection() {
+  if (!isSquadValid()) return;
+  showScreen("pitch");
+}
+
+function editSelection() {
+  showScreen("select");
+}
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+function resetAll() {
+  POSITIONS.forEach(p => state[p] = []);
+  POSITIONS.forEach(p => updateGridSelection(p));
+  renderPitch();
+  updateProgress();
+  checkValidate();
+  goToTab("gk");
+  showScreen("select");
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PARENT URL + IFRAME RESIZE (postMessage)
+   Messages "squad-selector-*" + anciens "wc2026-*" / "xilegende-*"
+   (compatibilité avec les intégrations WordPress existantes).
+   Sécurité :
+   - messages sortants ciblés sur l'origine de la page parente
+     (ancestorOrigins, sinon referrer). Repli "*" uniquement si elle est
+     inconnue : ces messages ne contiennent qu'une hauteur ou une demande d'URL ;
+   - messages entrants acceptés seulement depuis la fenêtre parente
+     directe et depuis son origine ;
+   - URL reçue validée (http/https uniquement), hauteur entière.
+   ═══════════════════════════════════════════════════════════════════ */
+const MSG_PREFIXES = ["squad-selector", "wc2026", "xilegende"];
+let PARENT_ORIGIN = null;
+let _parentUrl = null;
+
+function safeHttpUrl(value) {
+  try {
+    const u = new URL(value);
+    return (u.protocol === "https:" || u.protocol === "http:") ? u.href : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+try {
+  if (window.location.ancestorOrigins && window.location.ancestorOrigins.length) {
+    PARENT_ORIGIN = window.location.ancestorOrigins[0];
+  } else if (document.referrer) {
+    PARENT_ORIGIN = new URL(document.referrer).origin;
+  }
+} catch (e) {}
+
+function postToParent(type, payload) {
+  if (window.parent === window) return;
+  MSG_PREFIXES.forEach(p => {
+    try { window.parent.postMessage({ type: `${p}-${type}`, ...payload }, PARENT_ORIGIN || "*"); } catch (e) {}
+  });
+}
+
+function getShareUrl() {
+  if (_parentUrl) return _parentUrl;
+  if (window.parent !== window && document.referrer) {
+    const ref = safeHttpUrl(document.referrer);
+    if (ref) return ref;
+  }
+  return window.location.href;
+}
+
+window.addEventListener("message", (e) => {
+  if (window.parent === window || e.source !== window.parent) return;
+  if (PARENT_ORIGIN && e.origin !== PARENT_ORIGIN) return;
+  const d = e.data;
+  if (!d || typeof d.url !== "string" || !MSG_PREFIXES.some(p => d.type === p + "-url")) return;
+  const url = safeHttpUrl(d.url);
+  if (url) _parentUrl = url;
+});
+
+function setupAutoResize() {
+  if (window.parent === window) return;
+  let lastHeight = 0;
+  const postHeight = () => {
+    const widget = document.getElementById("squad-widget");
+    const h = widget
+      ? Math.ceil(widget.getBoundingClientRect().bottom + window.scrollY)
+      : Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    if (h === lastHeight) return;
+    lastHeight = h;
+    postToParent("resize", { height: h });
+  };
+  postHeight();
+  window.addEventListener("resize", postHeight);
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(postHeight).observe(document.body);
+  }
+  // Demande l'URL de la page hôte, avec relances si le script parent se charge après l'iframe
+  let tries = 0;
+  (function askUrl() {
+    if (_parentUrl || tries >= 10) return;
+    tries++;
+    postToParent("getUrl", {});
+    setTimeout(askUrl, 400);
+  })();
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   IMAGE GENERATION & SHARE
+   ═══════════════════════════════════════════════════════════════════ */
+async function generateImage() {
+  const pitchEl = document.getElementById("pitchContainer");
+  await new Promise(r => requestAnimationFrame(r));
+  const canvas = await html2canvas(pitchEl, {
+    backgroundColor: getComputedStyle(document.body).backgroundColor,
+    scale: 4,
+    useCORS: true,
+    allowTaint: true,
+    logging: false,
+    imageTimeout: 15000
+  });
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(b => {
+      if (b) resolve(b);
+      else reject(new Error("Canvas not exportable."));
+    }, "image/png");
+  });
+}
+
+async function downloadImage() {
+  try {
+    const blob = await generateImage();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = T.downloadFilename;
+    a.click();
+  } catch (e) {
+    console.error("html2canvas error:", e);
+    const msg = (location.protocol === "file:")
+      ? T.errorFileProto
+      : T.errorPrefix + (e.message || e);
+    alert(msg);
+  }
+}
+
+function shareOn(platform) {
+  const text = encodeURIComponent(T.shareText);
+  const url = encodeURIComponent(getShareUrl());
+  const urls = {
+    x: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`,
+    whatsapp: `https://wa.me/?text=${text}%20${url}`
+  };
+  if (platform === "instagram") {
+    downloadImage();
+    alert(T.instagramAlert);
+    return;
+  }
+  if (urls[platform]) window.open(urls[platform], "_blank", "width=600,height=400");
+}
+
+/* ── Start ── */
+init();
+setupAutoResize();
+</script>
+</body>
+</html>

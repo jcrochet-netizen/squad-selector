@@ -1,0 +1,24 @@
+{
+  "name": "Afrik-Foot",
+  "locale": "fr",
+  "maxWidth": 800,
+  "gridCols": "repeat(2,1fr)",
+  "vars": {
+    "--bg": "#1a1a1a",
+    "--card": "#2a2a2a",
+    "--card-hover": "#353535",
+    "--card-selected": "#2a361a",
+    "--accent": "#6d8d3f",
+    "--accent-dark": "#5a7333",
+    "--accent-text": "#94b855",
+    "--text": "#f5f5f5",
+    "--text-muted": "#a8a8a8",
+    "--heading": "#ffffff",
+    "--border": "#555555",
+    "--pos-def": "#2e7d32",
+    "--done-bg": "#1e3a23",
+    "--done-text": "#5ec46f",
+    "--initials-ring": "rgba(255,255,255,.15)",
+    "--photo-bg": "#3a3a3a"
+  }
+}

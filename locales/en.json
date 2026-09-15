@@ -1,0 +1,41 @@
+{
+  "pos": { "gk": "GK", "def": "DEF", "mid": "MID", "att": "FOR" },
+  "posFull": { "gk": "Goalkeepers", "def": "Defenders", "mid": "Midfielders", "att": "Forwards" },
+  "units": {
+    "gk": ["goalkeeper", "goalkeepers"],
+    "def": ["defender", "defenders"],
+    "mid": ["midfielder", "midfielders"],
+    "att": ["forward", "forwards"]
+  },
+  "rangeExact": "{n} {unit}",
+  "rangeBetween": "{min} to {max} {unit}",
+  "listSep": ", ",
+  "listLast": " and ",
+  "t": {
+    "pageTitle": "Pick your {country} squad for {event} | {site}",
+    "metaDescription": "Build and share your {total}-man {country} squad for {event}. Pick {rules}.",
+    "heading": "⚽ My {country} squad · {eventShort}",
+    "introTitle": "⚠️ How to pick your squad",
+    "introLead": "Pick the {total} players you would call up for {event}",
+    "introRules": "You can choose: {rules} (total must equal {total}).",
+    "introTabs": "Click on the position tabs to switch between {tabs}.",
+    "introShare": "Validate the list, see it on the pitch and share it.",
+    "selected": "selected",
+    "validateBtn": "Validate my squad",
+    "validateBtnReady": "View my squad ✓",
+    "hintIncomplete": "Pick the remaining players to continue",
+    "hintMin": "{pos}: pick at least {min} (currently {n})",
+    "hintRemainingOne": "1 more player to pick",
+    "hintRemainingMany": "{n} more players to pick",
+    "reset": "↺ Reset",
+    "edit": "← Edit my selection",
+    "pitchTitle": "My {total}-man squad<br>{country} · {eventShort}",
+    "download": "📥 Download image",
+    "shareX": "𝕏 Share",
+    "shareText": "Here is my {total}-man {country} squad for {event}. What do you think? Build yours here:",
+    "instagramAlert": "Image downloaded! Share it directly on Instagram.",
+    "errorFileProto": "Local capture is blocked when opened directly (file://). Run a local server (e.g. python3 -m http.server) or test on WordPress.",
+    "errorPrefix": "Error: ",
+    "downloadFilename": "my-{slug}-squad-{eventSlug}.png"
+  }
+}

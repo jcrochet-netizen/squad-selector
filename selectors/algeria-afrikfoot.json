@@ -1,0 +1,80 @@
+{
+  "site": "afrikfoot",
+  "country": {
+    "name": "Algérie",
+    "of": "de l'Algérie",
+    "adj": "algérienne",
+    "demonym": "algériens"
+  },
+  "event": {
+    "long": "le rassemblement d'octobre 2026",
+    "short": "Octobre 2026"
+  },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Luca Zidane", "photo": "https://cdn.sportmonks.com/images/soccer/players/0/447104.png"},
+      "Anthony Mandrea",
+      {"name": "Melvin Mastil", "photo": "https://cdn.sportmonks.com/images/soccer/players/16/37568688.png"},
+      {"name": "Oussama Benbot", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/785047.png"},
+      "Alexandre Oukidja",
+      "Alexis Guendouz",
+      "Gaya Merbah",
+      "Kilian Belazzoug",
+      "Farid Chaâl"
+    ],
+    "def": [
+      {"name": "Aïssa Mandi", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/95635.png"},
+      {"name": "Ramy Bensebaïni", "photo": "https://cdn.sportmonks.com/images/soccer/players/6/62502.png"},
+      "Zinédine Belaïd",
+      "Sohaib Naïr",
+      "Mohamed Tougaï",
+      "Ahmed Touba",
+      "Elias Benkara",
+      "Elyaz Zidane",
+      {"name": "Rafik Belghali", "photo": "https://cdn.sportmonks.com/images/soccer/players/17/37560881.png"},
+      {"name": "Samir Chergui", "photo": "https://cdn.sportmonks.com/images/soccer/players/11/433483.png"},
+      "Achraf Abada",
+      "Youcef Atal",
+      "Kevin Guitoun",
+      {"name": "Rayan Aït-Nouri", "photo": "https://cdn.sportmonks.com/images/soccer/players/18/13590962.png"},
+      {"name": "Jaouen Hadjam", "photo": "https://cdn.sportmonks.com/images/soccer/players/7/37530791.png"},
+      "Mehdi Dorval"
+    ],
+    "mid": [
+      {"name": "Ibrahim Maza", "photo": "https://cdn.sportmonks.com/images/soccer/players/17/37645233.png"},
+      {"name": "Hicham Boudaoui", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/10310744.png"},
+      {"name": "Ramiz Zerrouki", "photo": "https://cdn.sportmonks.com/images/soccer/players/10/37255818.png"},
+      {"name": "Houssem Aouar", "photo": "https://cdn.sportmonks.com/images/soccer/players/31/96959.png"},
+      {"name": "Fares Chaïbi", "photo": "https://cdn.sportmonks.com/images/soccer/players/2/37536482.png"},
+      {"name": "Yacine Titraoui", "photo": "https://cdn.sportmonks.com/images/soccer/players/26/37581338.png"},
+      "Adem Zorgane",
+      "Ismaël Bennacer",
+      {"name": "Nabil Bentaleb", "photo": "https://cdn.sportmonks.com/images/soccer/players/9/937.png"},
+      "Himad Abdelli",
+      "Adil Aouchiche",
+      "Carlo Boukhalfa",
+      "Yacine Adli",
+      "Ethan Mbappé"
+    ],
+    "att": [
+      {"name": "Riyad Mahrez", "photo": "https://cdn.sportmonks.com/images/soccer/players/11/971.png"},
+      {"name": "Amine Gouiri", "photo": "https://cdn.sportmonks.com/images/soccer/players/18/433458.png"},
+      "Mohamed Amine Amoura",
+      {"name": "Anis Hadj Moussa", "photo": "https://cdn.sportmonks.com/images/soccer/players/4/37579972.png"},
+      "Baghdad Bounedjah",
+      {"name": "Adil Boulbina", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/37583299.png"},
+      "Ilan Kebbal",
+      "Rafik Guitane",
+      {"name": "Fares Ghedjemis", "photo": "https://cdn.sportmonks.com/images/soccer/players/15/37591823.png"},
+      "Ahmed Benbouali",
+      "Amine Chiakha",
+      "Moncef Bakrar",
+      "Redouane Berkane",
+      "Youcef Belaïli",
+      "Islam Slimani",
+      "Yassine Benzia",
+      "Saïd Benrahma"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "site": "topmercato",
+  "country": {
+    "name": "France",
+    "of": "de la France",
+    "adj": "française",
+    "demonym": "français"
+  },
+  "event": {
+    "long": "le rassemblement d'octobre 2026",
+    "short": "Octobre 2026"
+  },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Mike Maignan", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/96227.png"},
+      {"name": "Brice Samba", "photo": "https://cdn.sportmonks.com/images/soccer/players/30/96030.png"},
+      "Lucas Chevalier",
+      {"name": "Robin Risser", "photo": "https://cdn.sportmonks.com/images/soccer/players/7/37608935.png"},
+      "Alphonse Aréola",
+      "Hugo Lloris",
+      "Guillaume Restes",
+      "Jean Butez"
+    ],
+    "def": [
+      {"name": "Jules Koundé", "photo": "https://cdn.sportmonks.com/images/soccer/players/18/337394.png"},
+      {"name": "Malo Gusto", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/37317367.png"},
+      "Pierre Kalulu",
+      {"name": "William Saliba", "photo": "https://cdn.sportmonks.com/images/soccer/players/1/17544737.png"},
+      {"name": "Dayot Upamecano", "photo": "https://cdn.sportmonks.com/images/soccer/players/21/33685.png"},
+      {"name": "Ibrahima Konaté", "photo": "https://cdn.sportmonks.com/images/soccer/players/12/100556.png"},
+      {"name": "Lucas Hernandez", "photo": "https://cdn.sportmonks.com/images/soccer/players/13/186797.png"},
+      {"name": "Maxence Lacroix", "photo": "https://cdn.sportmonks.com/images/soccer/players/26/5666458.png"},
+      "Wesley Fofana",
+      "Loïc Badé",
+      {"name": "Théo Hernandez", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/186995.png"},
+      {"name": "Lucas Digne", "photo": "https://cdn.sportmonks.com/images/soccer/players/8/95368.png"},
+      "Matthieu Udol"
+    ],
+    "mid": [
+      {"name": "N'Golo Kanté", "photo": "https://cdn.sportmonks.com/images/soccer/players/9/1193.png"},
+      {"name": "Aurélien Tchouaméni", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/5270371.png"},
+      {"name": "Adrien Rabiot", "photo": "https://cdn.sportmonks.com/images/soccer/players/14/95694.png"},
+      {"name": "Manu Koné", "photo": "https://cdn.sportmonks.com/images/soccer/players/16/23738800.png"},
+      {"name": "Warren Zaïre-Emery", "photo": "https://cdn.sportmonks.com/images/soccer/players/21/37593237.png"},
+      "Eduardo Camavinga",
+      {"name": "Maghnès Akliouche", "photo": "https://cdn.sportmonks.com/images/soccer/players/21/37530901.png"},
+      "Youssouf Fofana",
+      "Corentin Tolisso",
+      "Mattéo Guendouzi",
+      "Khéphren Thuram",
+      "Ayyoub Bouaddi"
+    ],
+    "att": [
+      {"name": "Ousmane Dembélé", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/32403.png"},
+      {"name": "Kylian Mbappé", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/96611.png"},
+      {"name": "Michael Olise", "photo": "https://cdn.sportmonks.com/images/soccer/players/16/24799984.png"},
+      {"name": "Bradley Barcola", "photo": "https://cdn.sportmonks.com/images/soccer/players/25/37317369.png"},
+      {"name": "Désiré Doué", "photo": "https://cdn.sportmonks.com/images/soccer/players/26/37590938.png"},
+      {"name": "Rayan Cherki", "photo": "https://cdn.sportmonks.com/images/soccer/players/5/21072805.png"},
+      {"name": "Jean-Philippe Mateta", "photo": "https://cdn.sportmonks.com/images/soccer/players/22/96950.png"},
+      {"name": "Marcus Thuram", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/99000.png"},
+      "Randal Kolo Muani",
+      "Florian Thauvin",
+      "Esteban Lepaul",
+      "Karim Benzema"
+    ]
+  }
+}

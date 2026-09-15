@@ -1,0 +1,57 @@
+{
+  "site": "afrikfoot",
+  "locale": "en",
+  "country": {
+    "name": "South Africa"
+  },
+  "event": {
+    "long": "the October 2026 international break",
+    "short": "October 2026"
+  },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Sipho Chaine", "photo": "https://cdn.sportmonks.com/images/soccer/players/0/289600.png"},
+      {"name": "Ricardo Goss", "photo": "https://cdn.sportmonks.com/images/soccer/players/4/289380.png"},
+      "Renaldo Leaner",
+      "Brandon Petersen",
+      {"name": "Ronwen Williams", "photo": "https://cdn.sportmonks.com/images/soccer/players/22/287894.png"}
+    ],
+    "def": [
+      "Samukelo Kabini",
+      "Grant Kekana",
+      "Aden McCarthy",
+      {"name": "Mbekezeli Mbokazi", "photo": "https://cdn.sportmonks.com/images/soccer/players/2/37910690.png"},
+      {"name": "Aubrey Modiba", "photo": "https://cdn.sportmonks.com/images/soccer/players/8/289096.png"},
+      "Thabiso Monyane",
+      {"name": "Khuliso Mudau", "photo": "https://cdn.sportmonks.com/images/soccer/players/4/1504516.png"},
+      {"name": "Khulumani Ndamane", "photo": "https://cdn.sportmonks.com/images/soccer/players/31/37760511.png"},
+      "Siyabonga Ngezana",
+      {"name": "Ime Okon", "photo": "https://cdn.sportmonks.com/images/soccer/players/2/37681890.png"},
+      {"name": "Kamogelo Sebelebele", "photo": "https://cdn.sportmonks.com/images/soccer/players/0/37622976.png"},
+      {"name": "Nkosinathi Sibisi", "photo": "https://cdn.sportmonks.com/images/soccer/players/22/289686.png"}
+    ],
+    "mid": [
+      {"name": "Jayden Adams", "photo": "https://cdn.sportmonks.com/images/soccer/players/11/37528875.png"},
+      "Bathusi Aubaas",
+      "Lebohang Maboe",
+      "Patrick Maswanganyi",
+      {"name": "Thalente Mbatha", "photo": "https://cdn.sportmonks.com/images/soccer/players/0/37392896.png"},
+      {"name": "Relebohile Mofokeng", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/37690743.png"},
+      {"name": "Teboho Mokoena", "photo": "https://cdn.sportmonks.com/images/soccer/players/29/289341.png"},
+      "Sphephelo Sithole",
+      {"name": "Themba Zwane", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/288275.png"}
+    ],
+    "att": [
+      {"name": "Oswin Appollis", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/36084791.png"},
+      {"name": "Lyle Foster", "photo": "https://cdn.sportmonks.com/images/soccer/players/30/4243070.png"},
+      {"name": "Evidence Makgopa", "photo": "https://cdn.sportmonks.com/images/soccer/players/8/37438632.png"},
+      {"name": "Thapelo Maseko", "photo": "https://cdn.sportmonks.com/images/soccer/players/25/37618713.png"},
+      "Tashreeq Matthews",
+      {"name": "Tshepang Moremi", "photo": "https://cdn.sportmonks.com/images/soccer/players/29/37551389.png"},
+      "Siyanda Ndlovu",
+      "Mohau Nkota",
+      {"name": "Iqraam Rayners", "photo": "https://cdn.sportmonks.com/images/soccer/players/27/1504475.png"}
+    ]
+  }
+}

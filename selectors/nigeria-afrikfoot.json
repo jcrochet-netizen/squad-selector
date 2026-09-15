@@ -1,0 +1,58 @@
+{
+  "site": "afrikfoot",
+  "country": {
+    "name": "Nigeria",
+    "of": "du Nigeria",
+    "adj": "nigériane",
+    "demonym": "nigérians"
+  },
+  "event": {
+    "long": "le rassemblement d'octobre 2026",
+    "short": "Octobre 2026"
+  },
+  "sportmonks": { "nationalityId": 716 },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Maduka Okoye", "club": "Udinese", "sportmonksId": 540585, "photo": "https://cdn.sportmonks.com/images/soccer/players/9/540585.png"},
+      {"name": "Stanley Nwabali", "club": "Chippa United", "sportmonksId": 37371114, "photo": "https://cdn.sportmonks.com/images/soccer/players/10/37371114.png"},
+      {"name": "Arthur Okonkwo", "club": "Charlton Athletic", "sportmonksId": 21428649, "photo": "https://cdn.sportmonks.com/images/soccer/players/9/21428649.png"},
+      {"name": "Francis Uzoho", "club": "Omonia Maiou", "sportmonksId": 3510272}
+    ],
+    "def": [
+      {"name": "Bruno Onyemaechi", "club": "Olympiakos", "sportmonksId": 37541645, "photo": "https://cdn.sportmonks.com/images/soccer/players/13/37541645.png"},
+      {"name": "Ola Aina", "club": "Nottingham Forest", "sportmonksId": 1956, "photo": "https://cdn.sportmonks.com/images/soccer/players/4/1956.png"},
+      {"name": "Calvin Bassey", "club": "Fulham", "sportmonksId": 540027, "photo": "https://cdn.sportmonks.com/images/soccer/players/27/540027.png"},
+      {"name": "Emmanuel Fernandez", "club": "Rangers", "sportmonksId": 37577459, "photo": "https://cdn.sportmonks.com/images/soccer/players/19/37577459.png"},
+      {"name": "Chibuike Nwaiwu", "club": "Trabzonspor", "sportmonksId": 37635461},
+      {"name": "Semi Ajayi", "club": "Hull City", "sportmonksId": 3066, "photo": "https://cdn.sportmonks.com/images/soccer/players/26/3066.png"},
+      {"name": "Bright Osayi-Samuel", "club": "Birmingham City", "sportmonksId": 6580, "photo": "https://cdn.sportmonks.com/images/soccer/players/20/6580.png"},
+      {"name": "Chidozie Awaziem", "club": "Alanyaspor", "sportmonksId": 161320, "photo": "https://cdn.sportmonks.com/images/soccer/players/8/161320.png"},
+      {"name": "Benjamin Fredrick", "club": "Brentford", "sportmonksId": 37683527, "photo": "https://cdn.sportmonks.com/images/soccer/players/7/37683527.png"},
+      {"name": "Ryan Alebiosu", "club": "Blackburn Rovers", "sportmonksId": 28912714, "photo": "https://cdn.sportmonks.com/images/soccer/players/10/28912714.png"},
+      {"name": "Abdullahi Bewene", "club": "Baník Ostrava", "sportmonksId": 37787934}
+    ],
+    "mid": [
+      {"name": "Wilfred Ndidi", "club": "Besiktas", "sportmonksId": 5319, "photo": "https://cdn.sportmonks.com/images/soccer/players/7/5319.png"},
+      {"name": "Frank Onyeka", "club": "Coventry City", "sportmonksId": 537108, "photo": "https://cdn.sportmonks.com/images/soccer/players/20/537108.png"},
+      {"name": "Alex Iwobi", "club": "Fulham", "sportmonksId": 1881, "photo": "https://cdn.sportmonks.com/images/soccer/players/25/1881.png"},
+      {"name": "Raphael Onyedika", "club": "Eintracht Frankfurt", "sportmonksId": 37327999, "photo": "https://cdn.sportmonks.com/images/soccer/players/31/37327999.png"},
+      {"name": "Alhassan Yusuf", "club": "New England Revolution", "sportmonksId": 20683852, "photo": "https://cdn.sportmonks.com/images/soccer/players/12/20683852.png"},
+      {"name": "Ebenezer Akinsanmiro", "club": "Monza", "sportmonksId": 37684319, "photo": "https://cdn.sportmonks.com/images/soccer/players/31/37684319.png"},
+      {"name": "Afeez Aremu", "club": "Aberdeen", "sportmonksId": 5666412, "photo": "https://cdn.sportmonks.com/images/soccer/players/12/5666412.png"},
+      {"name": "Victor Gidado", "club": "Gaziantep FK", "sportmonksId": 37732860}
+    ],
+    "att": [
+      {"name": "Ademola Lookman", "club": "Atlético Madrid", "sportmonksId": 5321, "photo": "https://cdn.sportmonks.com/images/soccer/players/9/5321.png"},
+      {"name": "Taiwo Awoniyi", "club": "Coventry City", "sportmonksId": 26506, "photo": "https://cdn.sportmonks.com/images/soccer/players/10/26506.png"},
+      {"name": "Paul Onuachu", "club": "Trabzonspor", "sportmonksId": 84143, "photo": "https://cdn.sportmonks.com/images/soccer/players/15/84143.png"},
+      {"name": "Akor Adams", "club": "Venezia", "sportmonksId": 22169317, "photo": "https://cdn.sportmonks.com/images/soccer/players/5/22169317.png"},
+      {"name": "Rafiu Durosinmi", "club": "KRC Genk", "sportmonksId": 37600075, "photo": "https://cdn.sportmonks.com/images/soccer/players/11/37600075.png"},
+      {"name": "Kelechi Iheanacho", "club": "Bursaspor", "sportmonksId": 1488, "photo": "https://cdn.sportmonks.com/images/soccer/players/16/1488.png"},
+      {"name": "Tolu Arokodare", "club": "Ajax", "sportmonksId": 37260431, "photo": "https://cdn.sportmonks.com/images/soccer/players/15/37260431.png"},
+      {"name": "Moses Simon", "club": "Paris FC", "sportmonksId": 62400, "photo": "https://cdn.sportmonks.com/images/soccer/players/0/62400.png"},
+      {"name": "Samuel Chukwueze", "club": "AC Milan", "sportmonksId": 15434627, "photo": "https://cdn.sportmonks.com/images/soccer/players/3/15434627.png"},
+      {"name": "George Ilenikhena", "club": "Al-Ittihad", "sportmonksId": 37667455, "photo": "https://cdn.sportmonks.com/images/soccer/players/31/37667455.png"}
+    ]
+  }
+}

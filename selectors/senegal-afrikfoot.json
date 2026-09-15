@@ -1,0 +1,66 @@
+{
+  "site": "afrikfoot",
+  "country": {
+    "name": "Sénégal",
+    "of": "du Sénégal",
+    "adj": "sénégalaise",
+    "demonym": "sénégalais"
+  },
+  "event": {
+    "long": "le rassemblement d'octobre 2026",
+    "short": "Octobre 2026"
+  },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Edouard Mendy", "photo": "https://cdn.sportmonks.com/images/soccer/players/1/99137.png"},
+      {"name": "Mory Diaw", "photo": "https://cdn.sportmonks.com/images/soccer/players/20/162164.png"},
+      {"name": "Yehvann Diouf", "photo": "https://cdn.sportmonks.com/images/soccer/players/21/99157.png"},
+      "Seny Dieng"
+    ],
+    "def": [
+      {"name": "Kalidou Koulibaly", "photo": "https://cdn.sportmonks.com/images/soccer/players/14/61806.png"},
+      {"name": "Moussa Niakhaté", "photo": "https://cdn.sportmonks.com/images/soccer/players/26/98874.png"},
+      {"name": "Mamadou Sarr", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/37532344.png"},
+      {"name": "Abdoulaye Seck", "photo": "https://cdn.sportmonks.com/images/soccer/players/28/153244.png"},
+      "Nobel Mendy",
+      "Malang Sarr",
+      {"name": "Moustapha Mbow", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/29336632.png"},
+      {"name": "Krépin Diatta", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/430403.png"},
+      {"name": "Antoine Mendy", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/37569271.png"},
+      {"name": "Ilay Camara", "photo": "https://cdn.sportmonks.com/images/soccer/players/13/37637485.png"},
+      {"name": "El Hadji Malick Diouf", "photo": "https://cdn.sportmonks.com/images/soccer/players/30/37685630.png"},
+      {"name": "Ismail Jakobs", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/3861304.png"}
+    ],
+    "mid": [
+      "Idrissa Gana Gueye",
+      {"name": "Lamine Camara", "photo": "https://cdn.sportmonks.com/images/soccer/players/20/37642676.png"},
+      {"name": "Habib Diarra", "photo": "https://cdn.sportmonks.com/images/soccer/players/8/37581992.png"},
+      {"name": "Pape Gueye", "photo": "https://cdn.sportmonks.com/images/soccer/players/17/433169.png"},
+      {"name": "Pape Matar Sarr", "photo": "https://cdn.sportmonks.com/images/soccer/players/6/37342694.png"},
+      {"name": "Pathé Ciss", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/2511096.png"},
+      "Mamadou Lamine Camara",
+      "Rassoul Ndiaye",
+      "Nampalys Mendy",
+      "Cheikh Niasse",
+      "Dion Lopy"
+    ],
+    "att": [
+      {"name": "Sadio Mané", "photo": "https://cdn.sportmonks.com/images/soccer/players/13/1389.png"},
+      {"name": "Nicolas Jackson", "photo": "https://cdn.sportmonks.com/images/soccer/players/13/37540621.png"},
+      {"name": "Ismaila Sarr", "photo": "https://cdn.sportmonks.com/images/soccer/players/18/96722.png"},
+      {"name": "Iliman Ndiaye", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/23661272.png"},
+      {"name": "Ibrahim Mbaye", "photo": "https://cdn.sportmonks.com/images/soccer/players/15/37726575.png"},
+      "Boulaye Dia",
+      "Habib Diallo",
+      {"name": "Cherif Ndiaye", "photo": "https://cdn.sportmonks.com/images/soccer/players/28/64188.png"},
+      {"name": "Bamba Dieng", "photo": "https://cdn.sportmonks.com/images/soccer/players/30/37541438.png"},
+      "Mamadou Diakhon",
+      {"name": "Assane Diao", "photo": "https://cdn.sportmonks.com/images/soccer/players/18/37674290.png"},
+      "Cheikh Sabaly",
+      "Ousseynou Niang",
+      "Ousmane Sow",
+      "Abdallah Sima"
+    ]
+  }
+}

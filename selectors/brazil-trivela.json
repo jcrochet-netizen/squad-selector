@@ -1,0 +1,67 @@
+{
+  "site": "trivela",
+  "country": {
+    "name": "Brasil",
+    "of": "do Brasil"
+  },
+  "event": {
+    "long": "a Data Fifa de outubro de 2026",
+    "short": "Outubro 2026"
+  },
+  "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
+  "players": {
+    "gk": [
+      {"name": "Alisson", "photo": "https://cdn.sportmonks.com/images/soccer/players/28/129820.png"},
+      {"name": "Ederson Moraes", "displayName": "Ederson M."},
+      "Bento",
+      {"name": "Hugo Souza", "displayName": "H.Souza"}
+    ],
+    "def": [
+      {"name": "Alex Sandro", "photo": "https://cdn.sportmonks.com/images/soccer/players/29/129725.png"},
+      {"name": "Bremer", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/1167415.png"},
+      "Danilo",
+      {"name": "Douglas Santos", "photo": "https://cdn.sportmonks.com/images/soccer/players/6/32614.png"},
+      {"name": "Gabriel Magalhães", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/97811.png"},
+      {"name": "Léo Pereira", "photo": "https://cdn.sportmonks.com/images/soccer/players/23/218871.png"},
+      {"name": "Marquinhos", "photo": "https://cdn.sportmonks.com/images/soccer/players/16/96208.png"},
+      "Wesley",
+      "Ibañez",
+      "Alexsandro Ribeiro",
+      "Fabrício Bruno",
+      {"name": "Vítor Reis", "displayName": "V. Reis"},
+      "Vanderson"
+    ],
+    "mid": [
+      "Andrey Santos",
+      {"name": "Bruno Guimarães", "displayName": "B.Guimarães", "photo": "https://cdn.sportmonks.com/images/soccer/players/9/459145.png"},
+      {"name": "Casemiro", "photo": "https://cdn.sportmonks.com/images/soccer/players/20/159700.png"},
+      {"name": "Danilo Santos", "photo": "https://cdn.sportmonks.com/images/soccer/players/5/37533413.png"},
+      {"name": "Fabinho", "photo": "https://cdn.sportmonks.com/images/soccer/players/3/96099.png"},
+      {"name": "Lucas Paquetá", "photo": "https://cdn.sportmonks.com/images/soccer/players/20/220052.png"},
+      "Gabriel Sara",
+      "André",
+      "Joelinton",
+      "Gerson",
+      {"name": "Ederson", "photo": "https://cdn.sportmonks.com/images/soccer/players/28/545244.png"},
+      {"name": "João Gomes", "displayName": "J. Gomes"}
+    ],
+    "att": [
+      {"name": "Endrick", "photo": "https://cdn.sportmonks.com/images/soccer/players/1/37647009.png"},
+      {"name": "Gabriel Martinelli", "photo": "https://cdn.sportmonks.com/images/soccer/players/28/10959356.png"},
+      {"name": "Igor Thiago", "photo": "https://cdn.sportmonks.com/images/soccer/players/4/37407204.png"},
+      {"name": "João Pedro", "displayName": "J.Pedro"},
+      {"name": "Luiz Henrique", "displayName": "L.Henrique", "photo": "https://cdn.sportmonks.com/images/soccer/players/24/37526008.png"},
+      {"name": "Matheus Cunha", "displayName": "M.Cunha", "photo": "https://cdn.sportmonks.com/images/soccer/players/19/1846739.png"},
+      {"name": "Raphinha", "photo": "https://cdn.sportmonks.com/images/soccer/players/2/160258.png"},
+      {"name": "Vinicius Júnior", "displayName": "Vinicius", "photo": "https://cdn.sportmonks.com/images/soccer/players/15/600687.png"},
+      {"name": "Neymar", "photo": "https://cdn.sportmonks.com/images/soccer/players/16/186320.png"},
+      "Antony",
+      {"name": "Rayan", "photo": "https://cdn.sportmonks.com/images/soccer/players/15/37679567.png"},
+      "Igor Jesus",
+      "Pedro",
+      "Richarlison",
+      "Vitor Roque",
+      "Kaio Jorge"
+    ]
+  }
+}

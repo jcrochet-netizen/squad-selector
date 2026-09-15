@@ -12,11 +12,11 @@
   "listSep": ", ",
   "listLast": " et ",
   "t": {
-    "pageTitle": "Compose la sélection {countryAdj} pour {event} | {site}",
-    "metaDescription": "Choisis les {total} joueurs de la sélection {countryAdj} pour {event}. Sélectionne {rules}, puis partage ta sélection.",
-    "heading": "⚽ Ma sélection {countryOf} · {eventShort}",
+    "pageTitle": "Compose la sélection {countryAdj} | {site}",
+    "metaDescription": "Choisis les {total} joueurs de la sélection {countryAdj}. Sélectionne {rules}, puis partage ta sélection.",
+    "heading": "⚽ Ma sélection {countryOf}",
     "introTitle": "⚠️ Mode d'emploi",
-    "introLead": "Choisis les {total} joueurs {countryDemonym} que tu convoquerais pour {event}",
+    "introLead": "Choisis les {total} joueurs {countryDemonym} que tu convoquerais",
     "introRules": "Tu peux choisir : {rules} (total = {total}).",
     "introTabs": "Clique sur les onglets des positions pour naviguer entre {tabs}.",
     "introShare": "Valide ta liste, vérifie-la sur le terrain et partage-la.",
@@ -29,13 +29,13 @@
     "hintRemainingMany": "Encore {n} joueurs à choisir",
     "reset": "↺ Réinitialiser",
     "edit": "← Modifier ma sélection",
-    "pitchTitle": "Ma sélection<br>{country} · {eventShort}",
+    "pitchTitle": "Ma sélection<br>{country}",
     "download": "📥 Télécharger l'image",
     "shareX": "𝕏 Partager",
-    "shareText": "Voici ma sélection {countryAdj} pour {event}. Qu'en penses-tu ? Fais la tienne ici :",
+    "shareText": "Voici ma sélection {countryAdj}. Qu'en penses-tu ? Fais la tienne ici :",
     "instagramAlert": "Image téléchargée ! Partage-la directement sur Instagram.",
     "errorFileProto": "La capture locale est bloquée en ouverture directe (file://). Lance un serveur local (ex : python3 -m http.server) ou teste sur WordPress.",
     "errorPrefix": "Erreur : ",
-    "downloadFilename": "ma-selection-{slug}-{eventSlug}.png"
+    "downloadFilename": "ma-selection-{slug}.png"
   }
 }

@@ -1,7 +1,6 @@
 {
   "site": "umdoisesportes",
   "country": "brazil",
-  "event": "2026-10",
   "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
   "players": {
     "gk": [

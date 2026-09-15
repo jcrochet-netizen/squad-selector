@@ -12,7 +12,7 @@
     "pt-BR": {
       "heading": "Você é o técnico: convoque seus {total} jogadores",
       "introTitle": "⚠️ Eleja seus convocados",
-      "introLead": "Defina {total} atletas para o seu elenco para {event}",
+      "introLead": "Defina os {total} atletas do seu elenco",
       "introRules": "São {rules}.",
       "introTabs": "Selecione nas abas de posições para navegar entre {tabs}.",
       "introShare": "Verifique as escolhas, confira a lista no campinho e compartilhe."

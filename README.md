@@ -6,9 +6,8 @@ Successeur de `wc26-squad-pickup` : même design, même fonctionnement (onglets 
 ## Structure
 
 ```
-selectors/   un fichier JSON par widget : site, pays, événement, règles, joueurs   ← ce qu'on modifie au quotidien
+selectors/   un fichier JSON par widget : site, pays, règles, joueurs   ← ce qu'on modifie au quotidien
 countries/   un JSON par pays : nom traduit dans chaque langue + nationalité SportMonks
-events/      un JSON par rassemblement : libellé traduit (ex. 2026-10.json)
 sites/       un JSON par média : nom, thème (couleurs), largeur
 locales/     textes de l'interface : en, es, fr, pt-BR
 src/         template.html : le moteur commun (HTML + CSS + JS)
@@ -34,7 +33,6 @@ Le build vérifie la config et refuse de générer en cas d'erreur : doublon de 
 {
   "site": "sportsmole",
   "country": "england",
-  "event": "2026-10",
   "rules": { "total": 26, "gk": [3,3], "def": [7,9], "mid": [6,9], "att": [7,9] },
   "players": {
     "gk":  ["Jordan Pickford", "Dean Henderson"],
@@ -49,7 +47,6 @@ Le build vérifie la config et refuse de générer en cas d'erreur : doublon de 
 |---|---|
 | `site` | nom d'un fichier de `sites/` (thème + nom du média) |
 | `country` | nom d'un fichier de `countries/` |
-| `event` | nom d'un fichier de `events/` |
 | `languages` | optionnel : limiter les langues générées, ex. `["fr", "en"]` (par défaut : toutes celles de `locales/`) |
 | `rules` | taille de la liste et fourchette `[min, max]` par poste |
 | `players` | un joueur = un nom, ou un objet avec `name` + options `displayName` (nom sur le terrain), `club` (affiché sous le nom), `sportmonksId`, `photo` (URL https, initiales en secours si l'image ne charge pas) |
@@ -70,20 +67,7 @@ Le build vérifie la config et refuse de générer en cas d'erreur : doublon de 
 
 `of` / `adj` / `demonym` sont les formes grammaticales utilisées dans les phrases (« Ma sélection **de l'Angleterre** », « la sélection **anglaise** », « les joueurs **anglais** »).
 
-### Événement : `events/<id>.json`
-
-Un fichier par rassemblement, à créer une fois puis à référencer dans les sélecteurs :
-
-```json
-{
-  "en": { "long": "the October 2026 international break", "short": "October 2026" },
-  "fr": { "long": "le rassemblement d'octobre 2026", "short": "Octobre 2026" },
-  "es": { "long": "la ventana internacional de octubre de 2026", "short": "Octubre 2026" },
-  "pt-BR": { "long": "a Data Fifa de outubro de 2026", "short": "Outubro 2026" }
-}
-```
-
-`long` s'insère dans une phrase (« pour **le rassemblement d'octobre 2026** »), `short` sert au titre, au terrain et au nom de l'image.
+Les textes ne mentionnent aucune date ni aucun rassemblement : un widget reste valable d'une trêve à l'autre, seule la liste de joueurs change.
 
 ## Photos SportMonks
 
@@ -123,8 +107,8 @@ Exemple de thème sombre : `sites/afrikfoot.json`.
 
 ## Ajouter une langue
 
-Copier `locales/en.json` en `locales/<code>.json` (ex. `it.json`) et traduire, puis ajouter la langue dans chaque fichier de `countries/` et `events/`. Le build signale tout ce qui manque. Au build suivant, chaque widget est aussi généré dans cette langue. Variables utilisables dans les textes :
-`{country} {countryOf} {countryAdj} {countryDemonym} {event} {eventShort} {site} {total} {rules} {tabs}`.
+Copier `locales/en.json` en `locales/<code>.json` (ex. `it.json`) et traduire, puis ajouter la langue dans chaque fichier de `countries/`. Le build signale tout ce qui manque. Au build suivant, chaque widget est aussi généré dans cette langue. Variables utilisables dans les textes :
+`{country} {countryOf} {countryAdj} {countryDemonym} {site} {total} {rules} {tabs}`.
 `{rules}` (« 3 gardiens, 7 à 9 défenseurs… ») et `{tabs}` (« GB, DÉF, MIL et ATT ») sont générés à partir des règles, donc toujours à jour.
 
 ## Tester en local
@@ -143,6 +127,7 @@ Les anciens messages `wc2026-*` et `xilegende-*` sont toujours émis : les inté
 ```html
 <iframe id="squad-selector-england" src="https://jcrochet-netizen.github.io/squad-selector/england-sportsmole-en.html"
         title="Pick your England squad" loading="lazy" scrolling="no"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals"
         referrerpolicy="strict-origin-when-cross-origin"
         style="width:100%;border:0;display:block;height:1400px;overflow:hidden"></iframe>
 <script>
@@ -159,12 +144,25 @@ Les anciens messages `wc2026-*` et `xilegende-*` sont toujours émis : les inté
     if (e.data.type === "squad-selector-getUrl") sendUrl();
     if (e.data.type === "squad-selector-resize") {
       var h = parseInt(e.data.height, 10);
-      if (h > 0 && h < 20000) f.style.height = h + "px";
+      if (h > 0 && h < 20000) { f.style.height = h + "px"; f.style.minHeight = "0"; }
     }
   });
 })();
 </script>
 ```
+
+`height:1400px` n'est qu'une hauteur d'attente : dès le premier message, le script la remplace par la hauteur réelle du widget (et neutralise un éventuel `min-height` imposé par le thème WordPress), donc pas de vide blanc.
+
+`sandbox` : chaque autorisation est nécessaire au widget, ne pas en retirer.
+| Autorisation | Pourquoi |
+|---|---|
+| `allow-scripts` | le widget est en JavaScript |
+| `allow-same-origin` | garde l'origine `jcrochet-netizen.github.io` : sans elle l'origine devient `null`, la vérification `e.origin` échoue (plus de redimensionnement ni d'URL de partage) et les photos ne passent plus en CORS pour l'image. Sans risque ici car l'iframe est sur un autre domaine que la page |
+| `allow-popups` + `allow-popups-to-escape-sandbox` | fenêtres de partage X / Facebook / WhatsApp, qui doivent fonctionner normalement |
+| `allow-downloads` | bouton « Télécharger l'image » |
+| `allow-modals` | messages d'alerte (Instagram, erreurs) |
+
+Non accordés volontairement : `allow-top-navigation`, `allow-forms`, `allow-pointer-lock`, etc.
 
 Règles de sécurité (des deux côtés) :
 - **Page parente** : origine du widget vérifiée (`e.origin`) + fenêtre émettrice vérifiée (`e.source`), URL envoyée uniquement à `WIDGET_ORIGIN` (jamais `"*"`), hauteur passée par `parseInt` et bornée.

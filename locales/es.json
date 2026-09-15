@@ -12,11 +12,11 @@
   "listSep": ", ",
   "listLast": " y ",
   "t": {
-    "pageTitle": "Elige la selección {countryOf} para {event} | {site}",
-    "metaDescription": "Elige a los {total} jugadores de la selección {countryOf} para {event}. Selecciona {rules} y comparte tu lista.",
-    "heading": "⚽ Mi selección {countryOf} · {eventShort}",
+    "pageTitle": "Elige la selección {countryOf} | {site}",
+    "metaDescription": "Elige a los {total} jugadores de la selección {countryOf}. Selecciona {rules} y comparte tu lista.",
+    "heading": "⚽ Mi selección {countryOf}",
     "introTitle": "⚠️ Cómo elegir tu lista",
-    "introLead": "Elige a los {total} jugadores que convocarías para {event}",
+    "introLead": "Elige a los {total} jugadores que convocarías",
     "introRules": "Puedes elegir: {rules} (total = {total}).",
     "introTabs": "Haz clic en las pestañas de posición para navegar entre {tabs}.",
     "introShare": "Valida tu lista, revísala en el campo y compártela.",
@@ -29,13 +29,13 @@
     "hintRemainingMany": "Faltan {n} jugadores",
     "reset": "↺ Reiniciar",
     "edit": "← Modificar mi selección",
-    "pitchTitle": "Mi selección<br>{country} · {eventShort}",
+    "pitchTitle": "Mi selección<br>{country}",
     "download": "📥 Descargar imagen",
     "shareX": "𝕏 Compartir",
-    "shareText": "Esta es mi selección {countryOf} para {event}. ¿Qué te parece? Haz la tuya aquí:",
+    "shareText": "Esta es mi selección {countryOf}. ¿Qué te parece? Haz la tuya aquí:",
     "instagramAlert": "¡Imagen descargada! Compártela directamente en Instagram.",
     "errorFileProto": "La captura local está bloqueada al abrir el archivo directamente (file://). Inicia un servidor local (p. ej. node serve.mjs) o prueba en WordPress.",
     "errorPrefix": "Error: ",
-    "downloadFilename": "mi-seleccion-{slug}-{eventSlug}.png"
+    "downloadFilename": "mi-seleccion-{slug}.png"
   }
 }

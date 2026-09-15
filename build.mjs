@@ -4,9 +4,8 @@
    node build.mjs                         → génère tous les widgets, dans toutes les langues
    node build.mjs england-sportsmole ...  → génère seulement ceux-là (toutes leurs langues)
 
-   Entrées : selectors/<id>.json   (site, pays, événement, règles, joueurs)
+   Entrées : selectors/<id>.json   (site, pays, règles, joueurs)
              countries/<pays>.json (nom du pays traduit + nationalité SportMonks)
-             events/<event>.json   (libellé de l'événement traduit)
              sites/<site>.json     (nom du média, thème)
              locales/<langue>.json (textes de l'interface)
              src/template.html     (moteur commun)
@@ -154,9 +153,7 @@ function loadSelector(id, allLangs) {
   const site = readJson(`sites/${sel.site}.json`);
 
   if (typeof sel.country !== "string") errors.push(`"country" doit référencer un fichier de countries/ (ex : "england")`);
-  if (typeof sel.event !== "string") errors.push(`"event" doit référencer un fichier de events/ (ex : "2026-10")`);
   const country = typeof sel.country === "string" ? readJson(`countries/${sel.country}.json`) : {};
-  const event = typeof sel.event === "string" ? readJson(`events/${sel.event}.json`) : {};
 
   const languages = sel.languages || allLangs;
   languages.forEach(l => {
@@ -166,7 +163,7 @@ function loadSelector(id, allLangs) {
   const rules = normalizeRules(sel.rules || {}, errors);
   const players = normalizePlayers(sel.players, rules, errors, warnings);
   const css = themeCss(site, sel, errors);
-  return { id, sel, site, country, event, languages, rules, players, css, errors, warnings };
+  return { id, sel, site, country, languages, rules, players, css, errors, warnings };
 }
 
 /* ── Build one language variant ──────────────────────────────────── */
@@ -176,9 +173,7 @@ function buildVariant(ctx, lang, template, baseLocale) {
   const { id, sel, site, rules, players } = ctx;
   const locale = readJson(`locales/${lang}.json`);
   const country = ctx.country[lang] || {};
-  const event = ctx.event[lang] || {};
   if (!country.name) errors.push(`countries/${sel.country}.json : "${lang}.name" manquant`);
-  if (!event.long || !event.short) errors.push(`events/${sel.event}.json : "${lang}.long" et "${lang}.short" manquants`);
   if (errors.length) return { errors, warnings };
 
   const vars = {
@@ -187,13 +182,10 @@ function buildVariant(ctx, lang, template, baseLocale) {
     countryOf: country.of || country.name,
     countryAdj: country.adj || country.name,
     countryDemonym: country.demonym || country.name,
-    event: event.long,
-    eventShort: event.short,
     total: rules.total,
     rules: rulesSentence(rules, locale),
     tabs: joinList(POSITIONS.map(p => locale.pos[p]), locale),
-    slug: slugify(country.name),
-    eventSlug: slugify(event.short)
+    slug: slugify(country.name)
   };
 
   // Priorité des textes : selector.text[langue] > site.text[langue] > locales/<langue> > locales/en
@@ -254,7 +246,7 @@ function buildVariant(ctx, lang, template, baseLocale) {
 
   const file = outName(id, lang);
   fs.writeFileSync(path.join(OUT_DIR, file), html);
-  return { errors, warnings, file, summary: `${country.name} · ${event.short}` };
+  return { errors, warnings, file, summary: country.name };
 }
 
 /* ── Index page ──────────────────────────────────────────────────── */
@@ -267,9 +259,9 @@ function buildIndex(allLangs) {
         const file = outName(id, lang);
         return fs.existsSync(path.join(OUT_DIR, file)) ? `<a href="${file}">${escHtml(lang)}</a>` : `<s>${escHtml(lang)}</s>`;
       }).join(" · ");
-      return `<tr><td>${escHtml(id)}</td><td>${escHtml(site.name)}</td><td>${escHtml(sel.event)}</td><td>${links}</td></tr>`;
+      return `<tr><td>${escHtml(id)}</td><td>${escHtml(site.name)}</td><td>${links}</td></tr>`;
     } catch {
-      return `<tr><td>${escHtml(id)}</td><td colspan="3">config invalide</td></tr>`;
+      return `<tr><td>${escHtml(id)}</td><td colspan="2">config invalide</td></tr>`;
     }
   }).join("\n");
   const html = `<!DOCTYPE html>
@@ -280,7 +272,7 @@ main{max-width:860px;margin:0 auto}h1{font-size:1.4rem;margin-bottom:4px}p{color
 .wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #eee;white-space:nowrap}
 th{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:#777}a{color:#e30613;font-weight:600}s{color:#bbb}</style></head>
 <body><main><h1>⚽ Squad Selector</h1><p>Mis à jour le ${new Date().toISOString().slice(0, 10)}</p>
-<div class="wrap"><table><thead><tr><th>Widget</th><th>Site</th><th>Événement</th><th>Langues</th></tr></thead>
+<div class="wrap"><table><thead><tr><th>Widget</th><th>Site</th><th>Langues</th></tr></thead>
 <tbody>
 ${rows}
 </tbody></table></div></main></body></html>
